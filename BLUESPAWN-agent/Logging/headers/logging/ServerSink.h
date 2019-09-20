@@ -4,35 +4,19 @@
 
 #include "LogSink.h"
 #include "LogLevel.h"
-#include "ReactionData.pb.h"
+#include "logging/GPBConverter.h"
 #include "reactions/Detections.h"
+#include "ReactionData.pb.h"
 
 namespace Log {
 
 	/**
-	 * ServerSink provides a sink for the logger that directs output to the console.
+	 * ServerSink provides a sink for the logger that directs output to a GPB server.
 	 * 
-	 * Each log message is prepended with the severity of the log, as defined in
-	 * MessagePrepends. This prepended text is colored with the color indicated in
-	 * PrependColors. 
 	 */
 	class ServerSink : public LogSink {
 	private:
 		std::string MessagePrepends[4] = { "[ERROR]", "[WARNING]", "[INFO]", "[OTHER]" };
-
-		std::string& wstring_to_string(const std::wstring& str);
-
-		// Converting HuntInfo to gpb::HuntInfo
-		gpb::Aggressiveness HuntAggressivenessToGPB(const Aggressiveness& info);
-		std::vector<gpb::Tactic> HuntTacticsToGPB(const DWORD& info);
-		std::vector<gpb::Category> HuntCategoriesToGPB(const DWORD& info);
-		std::vector<gpb::DataSource> HuntDatasourcesToGPB(const DWORD& info);
-		gpb::HuntInfo HuntInfoToGPB(const HuntInfo& info);
-
-		std::vector<gpb::FileReactionData> GetFileReactions(const std::vector<DETECTION*>& detections);
-		std::vector<gpb::RegistryReactionData> GetRegistryReactions(const std::vector<DETECTION*>& detections);
-		std::vector<gpb::ProcessReactionData> GetProcessReactions(const std::vector<DETECTION*>& detections);
-		std::vector<gpb::ServiceReactionData> GetServiceReactions(const std::vector<DETECTION*>& detections);
 
 	public:
 

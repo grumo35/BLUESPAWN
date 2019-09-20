@@ -26,64 +26,70 @@ namespace Gpb {
           string.Concat(
             "ChJSZWFjdGlvbkRhdGEucHJvdG8SA2dwYiJDCghBQ0xFbnRyeRIMCgR1c2Vy",
             "GAEgASgJEg0KBWdyb3VwGAIgASgJEhoKEnNlY3VyaXR5QXR0cmlidXRlcxgD",
-            "IAEoDSLcAgoQRmlsZVJlYWN0aW9uRGF0YRIPCgdtaXRyZUlEGAEgASgNEhAK",
+            "IAEoDSLqAgoQRmlsZVJlYWN0aW9uRGF0YRIPCgdtaXRyZUlEGAEgASgNEhAK",
             "CGZpbGVOYW1lGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEg0KBW93bmVy",
             "GAQgASgJEgwKBHNpemUYBSABKA0SEwoLdGltZUNyZWF0ZWQYBiABKA0SFAoM",
             "dGltZU1vZGlmaWVkGAcgASgNEhQKDHRpbWVBY2Nlc3NlZBgIIAEoDRIUCgxm",
             "aWxlQ29udGVudHMYCSABKAwSMwoKc2lnbmF0dXJlcxgKIAMoCzIfLmdwYi5G",
             "aWxlUmVhY3Rpb25EYXRhLlNpZ25hdHVyZRIaCgNBQ0wYCyADKAsyDS5ncGIu",
-            "QUNMRW50cnkaSwoJU2lnbmF0dXJlEhIKCnNpZ25lck5hbWUYASABKAkSFwoP",
-            "ZGlnZXN0QWxnb3JpdGhtGAIgASgJEhEKCXRpbWVzdGFtcBgDIAEoDSLyAQoU",
-            "UmVnaXN0cnlSZWFjdGlvbkRhdGESDwoHbWl0cmVJRBgBIAEoDRILCgNrZXkY",
-            "AiABKAkSDAoEZGF0YRgDIAEoDBIPCgduZXdEYXRhGAQgASgMEi8KBHR5cGUY",
-            "BSABKA4yIS5ncGIuUmVnaXN0cnlSZWFjdGlvbkRhdGEuUmVnVHlwZRIaCgNB",
-            "Q0wYBiADKAsyDS5ncGIuQUNMRW50cnkiUAoHUmVnVHlwZRIGCgJTWhAAEgwK",
-            "CE1VTFRJX1NaEAESDQoJRVhQQU5EX1NaEAISCgoGQklOQVJZEAMSCQoFRFdP",
-            "UkQQBBIJCgVRV09SRBAFIs0CChNQcm9jZXNzUmVhY3Rpb25EYXRhEg8KB21p",
-            "dHJlSUQYASABKA0SCwoDcGlkGAIgASgNEgwKBG5hbWUYAyABKAkSEwoLZGVz",
-            "Y3JpcHRpb24YBCABKAkSEwoLY29tbWFuZExpbmUYBSABKAkSDAoEcGF0aBgG",
-            "IAEoCRIYChBjdXJyZW50RGlyZWN0b3J5GAcgASgJEhkKEWF1dG9zdGFydExv",
-            "Y2F0aW9uGAggASgJEg4KBnBhcmVudBgJIAEoCRIMCgR1c2VyGAogASgJEhMK",
-            "C3RpbWVTdGFydGVkGAsgASgNEhUKDXJlY2lldmVkQnl0ZXMYDCABKA0SEQoJ",
-            "c2VudEJ5dGVzGA0gASgNEhQKDHByaXZhdGVCeXRlcxgOIAEoDRISCgp3b3Jr",
-            "aW5nU2V0GA8gASgNEhYKDmJpbmFyeUNvbnRlbnRzGBAgASgMIvcBChNTZXJ2",
-            "aWNlUmVhY3Rpb25EYXRhEg8KB21pdHJlSUQYASABKA0SCwoDcGlkGAIgASgN",
-            "EgwKBG5hbWUYAyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkSDwoHbG9nT25B",
-            "cxgFIAEoCRITCgtzdGFydHVwVHlwZRgGIAEoCRIXCg9zdGFydFBhcmFtZXRl",
-            "cnMYByABKAkSHAoUYWxsb3dEZXNrdG9wSW50ZXJhY3QYCCABKAgSFgoOcnVu",
-            "UHJvZ3JhbVBhdGgYCSABKAkSEgoKYmluYXJ5UGF0aBgKIAEoCRIWCg5iaW5h",
-            "cnlDb250ZW50cxgLIAEoDCLXAQoISHVudEluZm8SEAoIaHVudE5hbWUYASAB",
-            "KAkSLwoSaHVudEFnZ3Jlc3NpdmVuZXNzGAIgASgOMhMuZ3BiLkFnZ3Jlc3Np",
-            "dmVuZXNzEiAKC2h1bnRUYWN0aWNzGAMgAygOMgsuZ3BiLlRhY3RpYxIlCg5o",
-            "dW50Q2F0ZWdvcmllcxgEIAMoDjINLmdwYi5DYXRlZ29yeRIoCg9odW50RGF0",
-            "YXNvdXJjZXMYBSADKA4yDy5ncGIuRGF0YVNvdXJjZRIVCg1odW50U3RhcnRU",
-            "aW1lGAYgASgNIpACCgtIdW50TWVzc2FnZRIbCgRpbmZvGAEgASgLMg0uZ3Bi",
-            "Lkh1bnRJbmZvEhQKDGV4dHJhTWVzc2FnZRgDIAEoCRItCg5maWxlRGV0ZWN0",
-            "aW9ucxgEIAMoCzIVLmdwYi5GaWxlUmVhY3Rpb25EYXRhEjUKEnJlZ2lzdHJ5",
-            "RGV0ZWN0aW9ucxgFIAMoCzIZLmdwYi5SZWdpc3RyeVJlYWN0aW9uRGF0YRIz",
-            "ChFwcm9jZXNzRGV0ZWN0aW9ucxgGIAMoCzIYLmdwYi5Qcm9jZXNzUmVhY3Rp",
-            "b25EYXRhEjMKEXNlcnZpY2VEZXRlY3Rpb25zGAcgAygLMhguZ3BiLlNlcnZp",
-            "Y2VSZWFjdGlvbkRhdGEq5AEKBlRhY3RpYxIRCg1Jbml0aWFsQWNjZXNzEAAS",
-            "DQoJRXhlY3V0aW9uEAESDwoLUGVyc2lzdGVuY2UQAhIXChNQcml2aWxlZ2VF",
-            "c2NhbGF0aW9uEAMSEgoORGVmZW5zZUV2YXNpb24QBBIUChBDcmVkZW50aWFs",
-            "QWNjZXNzEAUSDQoJRGlzY292ZXJ5EAYSEwoPTGF0ZXJhbE1vdmVtZW50EAcS",
-            "DgoKQ29sbGVjdGlvbhAIEhIKDkNvbW1hbmRDb250cm9sEAkSEAoMRXhmaWx0",
-            "cmF0aW9uEAoSCgoGSW1wYWN0EAwqpQEKCkRhdGFTb3VyY2USEQoNU2Vydmlj",
-            "ZVNvdXJjZRAAEhEKDVByb2Nlc3NTb3VyY2UQARIQCgxEcml2ZXJTb3VyY2UQ",
-            "AhIUChBGaWxlU3lzdGVtU291cmNlEAMSEgoOUmVnaXN0cnlTb3VyY2UQBBIN",
-            "CglHUE9Tb3VyY2UQBRITCg9FdmVudExvZ3NTb3VyY2UQBhIRCg1OZXR3b3Jr",
-            "U291cmNlEAcqRQoIQ2F0ZWdvcnkSEgoOQ29uZmlndXJhdGlvbnMQABINCglQ",
-            "cm9jZXNzZXMQARIJCgVGaWxlcxACEgsKB05ldHdvcmsQAypICg5BZ2dyZXNz",
-            "aXZlbmVzcxILCgdDdXJzb3J5EAASDAoITW9kZXJhdGUQARILCgdDYXJlZnVs",
-            "EAISDgoKQWdncmVzc2l2ZRADYgZwcm90bzM="));
+            "QUNMRW50cnkSDAoEaGFzaBgMIAEoDBpLCglTaWduYXR1cmUSEgoKc2lnbmVy",
+            "TmFtZRgBIAEoCRIXCg9kaWdlc3RBbGdvcml0aG0YAiABKAkSEQoJdGltZXN0",
+            "YW1wGAMgASgNIvABChRSZWdpc3RyeVJlYWN0aW9uRGF0YRIPCgdtaXRyZUlE",
+            "GAEgASgNEgsKA2tleRgCIAEoCRIMCgRkYXRhGAMgASgMEg0KBXZhbHVlGAQg",
+            "ASgMEi8KBHR5cGUYBSABKA4yIS5ncGIuUmVnaXN0cnlSZWFjdGlvbkRhdGEu",
+            "UmVnVHlwZRIaCgNBQ0wYBiADKAsyDS5ncGIuQUNMRW50cnkiUAoHUmVnVHlw",
+            "ZRIGCgJTWhAAEgwKCE1VTFRJX1NaEAESDQoJRVhQQU5EX1NaEAISCgoGQklO",
+            "QVJZEAMSCQoFRFdPUkQQBBIJCgVRV09SRBAFIqUEChNQcm9jZXNzUmVhY3Rp",
+            "b25EYXRhEg8KB21pdHJlSUQYASABKA0SCwoDcGlkGAIgASgNEgwKBG5hbWUY",
+            "AyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkSEwoLY29tbWFuZExpbmUYBSAB",
+            "KAkSDAoEcGF0aBgGIAEoCRIYChBjdXJyZW50RGlyZWN0b3J5GAcgASgJEhkK",
+            "EWF1dG9zdGFydExvY2F0aW9uGAggASgJEg4KBnBhcmVudBgJIAEoCRIMCgR1",
+            "c2VyGAogASgJEhMKC3RpbWVTdGFydGVkGAsgASgNEhUKDXJlY2lldmVkQnl0",
+            "ZXMYDCABKA0SEQoJc2VudEJ5dGVzGA0gASgNEhQKDHByaXZhdGVCeXRlcxgO",
+            "IAEoDRISCgp3b3JraW5nU2V0GA8gASgNEhYKDmJpbmFyeUNvbnRlbnRzGBAg",
+            "ASgMEgsKA3RpZBgRIAEoDRIXCg9hbGxvY2F0aW9uU3RhcnQYEiABKA0SSAoP",
+            "ZGV0ZWN0aW9uTWV0aG9kGBMgASgOMi8uZ3BiLlByb2Nlc3NSZWFjdGlvbkRh",
+            "dGEuUHJvY2Vzc0RldGVjdGlvbk1ldGhvZCJmChZQcm9jZXNzRGV0ZWN0aW9u",
+            "TWV0aG9kEhIKDk5vdEltYWdlQmFja2VkEAASGAoUQmFja2luZ0ltYWdlTWlz",
+            "bWF0Y2gQARIPCgtOb3RJbkxvYWRlchACEg0KCU5vdFNpZ25lZBADIosCChNT",
+            "ZXJ2aWNlUmVhY3Rpb25EYXRhEg8KB21pdHJlSUQYASABKA0SCwoDcGlkGAIg",
+            "ASgNEgwKBG5hbWUYAyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkSDwoHbG9n",
+            "T25BcxgFIAEoCRITCgtzdGFydHVwVHlwZRgGIAEoCRIXCg9zdGFydFBhcmFt",
+            "ZXRlcnMYByABKAkSHAoUYWxsb3dEZXNrdG9wSW50ZXJhY3QYCCABKAgSFgoO",
+            "cnVuUHJvZ3JhbVBhdGgYCSABKAkSEgoKYmluYXJ5UGF0aBgKIAEoCRIWCg5i",
+            "aW5hcnlDb250ZW50cxgLIAEoDBISCgpzZXJ2aWNlRExMGAwgASgMItcBCghI",
+            "dW50SW5mbxIQCghodW50TmFtZRgBIAEoCRIvChJodW50QWdncmVzc2l2ZW5l",
+            "c3MYAiABKA4yEy5ncGIuQWdncmVzc2l2ZW5lc3MSIAoLaHVudFRhY3RpY3MY",
+            "AyADKA4yCy5ncGIuVGFjdGljEiUKDmh1bnRDYXRlZ29yaWVzGAQgAygOMg0u",
+            "Z3BiLkNhdGVnb3J5EigKD2h1bnREYXRhc291cmNlcxgFIAMoDjIPLmdwYi5E",
+            "YXRhU291cmNlEhUKDWh1bnRTdGFydFRpbWUYBiABKA0ikAIKC0h1bnRNZXNz",
+            "YWdlEhsKBGluZm8YASABKAsyDS5ncGIuSHVudEluZm8SFAoMZXh0cmFNZXNz",
+            "YWdlGAMgASgJEi0KDmZpbGVEZXRlY3Rpb25zGAQgAygLMhUuZ3BiLkZpbGVS",
+            "ZWFjdGlvbkRhdGESNQoScmVnaXN0cnlEZXRlY3Rpb25zGAUgAygLMhkuZ3Bi",
+            "LlJlZ2lzdHJ5UmVhY3Rpb25EYXRhEjMKEXByb2Nlc3NEZXRlY3Rpb25zGAYg",
+            "AygLMhguZ3BiLlByb2Nlc3NSZWFjdGlvbkRhdGESMwoRc2VydmljZURldGVj",
+            "dGlvbnMYByADKAsyGC5ncGIuU2VydmljZVJlYWN0aW9uRGF0YSrkAQoGVGFj",
+            "dGljEhEKDUluaXRpYWxBY2Nlc3MQABINCglFeGVjdXRpb24QARIPCgtQZXJz",
+            "aXN0ZW5jZRACEhcKE1ByaXZpbGVnZUVzY2FsYXRpb24QAxISCg5EZWZlbnNl",
+            "RXZhc2lvbhAEEhQKEENyZWRlbnRpYWxBY2Nlc3MQBRINCglEaXNjb3ZlcnkQ",
+            "BhITCg9MYXRlcmFsTW92ZW1lbnQQBxIOCgpDb2xsZWN0aW9uEAgSEgoOQ29t",
+            "bWFuZENvbnRyb2wQCRIQCgxFeGZpbHRyYXRpb24QChIKCgZJbXBhY3QQDCql",
+            "AQoKRGF0YVNvdXJjZRIRCg1TZXJ2aWNlU291cmNlEAASEQoNUHJvY2Vzc1Nv",
+            "dXJjZRABEhAKDERyaXZlclNvdXJjZRACEhQKEEZpbGVTeXN0ZW1Tb3VyY2UQ",
+            "AxISCg5SZWdpc3RyeVNvdXJjZRAEEg0KCUdQT1NvdXJjZRAFEhMKD0V2ZW50",
+            "TG9nc1NvdXJjZRAGEhEKDU5ldHdvcmtTb3VyY2UQBypFCghDYXRlZ29yeRIS",
+            "Cg5Db25maWd1cmF0aW9ucxAAEg0KCVByb2Nlc3NlcxABEgkKBUZpbGVzEAIS",
+            "CwoHTmV0d29yaxADKkgKDkFnZ3Jlc3NpdmVuZXNzEgsKB0N1cnNvcnkQABIM",
+            "CghNb2RlcmF0ZRABEgsKB0NhcmVmdWwQAhIOCgpBZ2dyZXNzaXZlEANiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Gpb.Tactic), typeof(global::Gpb.DataSource), typeof(global::Gpb.Category), typeof(global::Gpb.Aggressiveness), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.ACLEntry), global::Gpb.ACLEntry.Parser, new[]{ "User", "Group", "SecurityAttributes" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.FileReactionData), global::Gpb.FileReactionData.Parser, new[]{ "MitreID", "FileName", "Description", "Owner", "Size", "TimeCreated", "TimeModified", "TimeAccessed", "FileContents", "Signatures", "ACL" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.FileReactionData.Types.Signature), global::Gpb.FileReactionData.Types.Signature.Parser, new[]{ "SignerName", "DigestAlgorithm", "Timestamp" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.RegistryReactionData), global::Gpb.RegistryReactionData.Parser, new[]{ "MitreID", "Key", "Data", "NewData", "Type", "ACL" }, null, new[]{ typeof(global::Gpb.RegistryReactionData.Types.RegType) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.ProcessReactionData), global::Gpb.ProcessReactionData.Parser, new[]{ "MitreID", "Pid", "Name", "Description", "CommandLine", "Path", "CurrentDirectory", "AutostartLocation", "Parent", "User", "TimeStarted", "RecievedBytes", "SentBytes", "PrivateBytes", "WorkingSet", "BinaryContents" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.ServiceReactionData), global::Gpb.ServiceReactionData.Parser, new[]{ "MitreID", "Pid", "Name", "Description", "LogOnAs", "StartupType", "StartParameters", "AllowDesktopInteract", "RunProgramPath", "BinaryPath", "BinaryContents" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.FileReactionData), global::Gpb.FileReactionData.Parser, new[]{ "MitreID", "FileName", "Description", "Owner", "Size", "TimeCreated", "TimeModified", "TimeAccessed", "FileContents", "Signatures", "ACL", "Hash" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.FileReactionData.Types.Signature), global::Gpb.FileReactionData.Types.Signature.Parser, new[]{ "SignerName", "DigestAlgorithm", "Timestamp" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.RegistryReactionData), global::Gpb.RegistryReactionData.Parser, new[]{ "MitreID", "Key", "Data", "Value", "Type", "ACL" }, null, new[]{ typeof(global::Gpb.RegistryReactionData.Types.RegType) }, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.ProcessReactionData), global::Gpb.ProcessReactionData.Parser, new[]{ "MitreID", "Pid", "Name", "Description", "CommandLine", "Path", "CurrentDirectory", "AutostartLocation", "Parent", "User", "TimeStarted", "RecievedBytes", "SentBytes", "PrivateBytes", "WorkingSet", "BinaryContents", "Tid", "AllocationStart", "DetectionMethod" }, null, new[]{ typeof(global::Gpb.ProcessReactionData.Types.ProcessDetectionMethod) }, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.ServiceReactionData), global::Gpb.ServiceReactionData.Parser, new[]{ "MitreID", "Pid", "Name", "Description", "LogOnAs", "StartupType", "StartParameters", "AllowDesktopInteract", "RunProgramPath", "BinaryPath", "BinaryContents", "ServiceDLL" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.HuntInfo), global::Gpb.HuntInfo.Parser, new[]{ "HuntName", "HuntAggressiveness", "HuntTactics", "HuntCategories", "HuntDatasources", "HuntStartTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.HuntMessage), global::Gpb.HuntMessage.Parser, new[]{ "Info", "ExtraMessage", "FileDetections", "RegistryDetections", "ProcessDetections", "ServiceDetections" }, null, null, null)
           }));
@@ -356,6 +362,7 @@ namespace Gpb {
       fileContents_ = other.fileContents_;
       signatures_ = other.signatures_.Clone();
       aCL_ = other.aCL_.Clone();
+      hash_ = other.hash_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -483,6 +490,17 @@ namespace Gpb {
       get { return aCL_; }
     }
 
+    /// <summary>Field number for the "hash" field.</summary>
+    public const int HashFieldNumber = 12;
+    private pb::ByteString hash_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Hash {
+      get { return hash_; }
+      set {
+        hash_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as FileReactionData);
@@ -507,6 +525,7 @@ namespace Gpb {
       if (FileContents != other.FileContents) return false;
       if(!signatures_.Equals(other.signatures_)) return false;
       if(!aCL_.Equals(other.aCL_)) return false;
+      if (Hash != other.Hash) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -524,6 +543,7 @@ namespace Gpb {
       if (FileContents.Length != 0) hash ^= FileContents.GetHashCode();
       hash ^= signatures_.GetHashCode();
       hash ^= aCL_.GetHashCode();
+      if (Hash.Length != 0) hash ^= Hash.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -575,6 +595,10 @@ namespace Gpb {
       }
       signatures_.WriteTo(output, _repeated_signatures_codec);
       aCL_.WriteTo(output, _repeated_aCL_codec);
+      if (Hash.Length != 0) {
+        output.WriteRawTag(98);
+        output.WriteBytes(Hash);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -612,6 +636,9 @@ namespace Gpb {
       }
       size += signatures_.CalculateSize(_repeated_signatures_codec);
       size += aCL_.CalculateSize(_repeated_aCL_codec);
+      if (Hash.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Hash);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -652,6 +679,9 @@ namespace Gpb {
       }
       signatures_.Add(other.signatures_);
       aCL_.Add(other.aCL_);
+      if (other.Hash.Length != 0) {
+        Hash = other.Hash;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -705,6 +735,10 @@ namespace Gpb {
           }
           case 90: {
             aCL_.AddEntriesFrom(input, _repeated_aCL_codec);
+            break;
+          }
+          case 98: {
+            Hash = input.ReadBytes();
             break;
           }
         }
@@ -933,7 +967,7 @@ namespace Gpb {
       mitreID_ = other.mitreID_;
       key_ = other.key_;
       data_ = other.data_;
-      newData_ = other.newData_;
+      value_ = other.value_;
       type_ = other.type_;
       aCL_ = other.aCL_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -977,14 +1011,14 @@ namespace Gpb {
       }
     }
 
-    /// <summary>Field number for the "newData" field.</summary>
-    public const int NewDataFieldNumber = 4;
-    private pb::ByteString newData_ = pb::ByteString.Empty;
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 4;
+    private pb::ByteString value_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString NewData {
-      get { return newData_; }
+    public pb::ByteString Value {
+      get { return value_; }
       set {
-        newData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        value_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1025,7 +1059,7 @@ namespace Gpb {
       if (MitreID != other.MitreID) return false;
       if (Key != other.Key) return false;
       if (Data != other.Data) return false;
-      if (NewData != other.NewData) return false;
+      if (Value != other.Value) return false;
       if (Type != other.Type) return false;
       if(!aCL_.Equals(other.aCL_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1037,7 +1071,7 @@ namespace Gpb {
       if (MitreID != 0) hash ^= MitreID.GetHashCode();
       if (Key.Length != 0) hash ^= Key.GetHashCode();
       if (Data.Length != 0) hash ^= Data.GetHashCode();
-      if (NewData.Length != 0) hash ^= NewData.GetHashCode();
+      if (Value.Length != 0) hash ^= Value.GetHashCode();
       if (Type != 0) hash ^= Type.GetHashCode();
       hash ^= aCL_.GetHashCode();
       if (_unknownFields != null) {
@@ -1065,9 +1099,9 @@ namespace Gpb {
         output.WriteRawTag(26);
         output.WriteBytes(Data);
       }
-      if (NewData.Length != 0) {
+      if (Value.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteBytes(NewData);
+        output.WriteBytes(Value);
       }
       if (Type != 0) {
         output.WriteRawTag(40);
@@ -1091,8 +1125,8 @@ namespace Gpb {
       if (Data.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
       }
-      if (NewData.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(NewData);
+      if (Value.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Value);
       }
       if (Type != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
@@ -1118,8 +1152,8 @@ namespace Gpb {
       if (other.Data.Length != 0) {
         Data = other.Data;
       }
-      if (other.NewData.Length != 0) {
-        NewData = other.NewData;
+      if (other.Value.Length != 0) {
+        Value = other.Value;
       }
       if (other.Type != 0) {
         Type = other.Type;
@@ -1149,7 +1183,7 @@ namespace Gpb {
             break;
           }
           case 34: {
-            NewData = input.ReadBytes();
+            Value = input.ReadBytes();
             break;
           }
           case 40: {
@@ -1223,6 +1257,9 @@ namespace Gpb {
       privateBytes_ = other.privateBytes_;
       workingSet_ = other.workingSet_;
       binaryContents_ = other.binaryContents_;
+      tid_ = other.tid_;
+      allocationStart_ = other.allocationStart_;
+      detectionMethod_ = other.detectionMethod_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1407,6 +1444,39 @@ namespace Gpb {
       }
     }
 
+    /// <summary>Field number for the "tid" field.</summary>
+    public const int TidFieldNumber = 17;
+    private uint tid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint Tid {
+      get { return tid_; }
+      set {
+        tid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "allocationStart" field.</summary>
+    public const int AllocationStartFieldNumber = 18;
+    private uint allocationStart_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint AllocationStart {
+      get { return allocationStart_; }
+      set {
+        allocationStart_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "detectionMethod" field.</summary>
+    public const int DetectionMethodFieldNumber = 19;
+    private global::Gpb.ProcessReactionData.Types.ProcessDetectionMethod detectionMethod_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Gpb.ProcessReactionData.Types.ProcessDetectionMethod DetectionMethod {
+      get { return detectionMethod_; }
+      set {
+        detectionMethod_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as ProcessReactionData);
@@ -1436,6 +1506,9 @@ namespace Gpb {
       if (PrivateBytes != other.PrivateBytes) return false;
       if (WorkingSet != other.WorkingSet) return false;
       if (BinaryContents != other.BinaryContents) return false;
+      if (Tid != other.Tid) return false;
+      if (AllocationStart != other.AllocationStart) return false;
+      if (DetectionMethod != other.DetectionMethod) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1458,6 +1531,9 @@ namespace Gpb {
       if (PrivateBytes != 0) hash ^= PrivateBytes.GetHashCode();
       if (WorkingSet != 0) hash ^= WorkingSet.GetHashCode();
       if (BinaryContents.Length != 0) hash ^= BinaryContents.GetHashCode();
+      if (Tid != 0) hash ^= Tid.GetHashCode();
+      if (AllocationStart != 0) hash ^= AllocationStart.GetHashCode();
+      if (DetectionMethod != 0) hash ^= DetectionMethod.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1535,6 +1611,18 @@ namespace Gpb {
         output.WriteRawTag(130, 1);
         output.WriteBytes(BinaryContents);
       }
+      if (Tid != 0) {
+        output.WriteRawTag(136, 1);
+        output.WriteUInt32(Tid);
+      }
+      if (AllocationStart != 0) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(AllocationStart);
+      }
+      if (DetectionMethod != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteEnum((int) DetectionMethod);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1590,6 +1678,15 @@ namespace Gpb {
       }
       if (BinaryContents.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeBytesSize(BinaryContents);
+      }
+      if (Tid != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Tid);
+      }
+      if (AllocationStart != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(AllocationStart);
+      }
+      if (DetectionMethod != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) DetectionMethod);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1649,6 +1746,15 @@ namespace Gpb {
       }
       if (other.BinaryContents.Length != 0) {
         BinaryContents = other.BinaryContents;
+      }
+      if (other.Tid != 0) {
+        Tid = other.Tid;
+      }
+      if (other.AllocationStart != 0) {
+        AllocationStart = other.AllocationStart;
+      }
+      if (other.DetectionMethod != 0) {
+        DetectionMethod = other.DetectionMethod;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1725,9 +1831,35 @@ namespace Gpb {
             BinaryContents = input.ReadBytes();
             break;
           }
+          case 136: {
+            Tid = input.ReadUInt32();
+            break;
+          }
+          case 144: {
+            AllocationStart = input.ReadUInt32();
+            break;
+          }
+          case 152: {
+            DetectionMethod = (global::Gpb.ProcessReactionData.Types.ProcessDetectionMethod) input.ReadEnum();
+            break;
+          }
         }
       }
     }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the ProcessReactionData message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum ProcessDetectionMethod {
+        [pbr::OriginalName("NotImageBacked")] NotImageBacked = 0,
+        [pbr::OriginalName("BackingImageMismatch")] BackingImageMismatch = 1,
+        [pbr::OriginalName("NotInLoader")] NotInLoader = 2,
+        [pbr::OriginalName("NotSigned")] NotSigned = 3,
+      }
+
+    }
+    #endregion
 
   }
 
@@ -1767,6 +1899,7 @@ namespace Gpb {
       runProgramPath_ = other.runProgramPath_;
       binaryPath_ = other.binaryPath_;
       binaryContents_ = other.binaryContents_;
+      serviceDLL_ = other.serviceDLL_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1896,6 +2029,17 @@ namespace Gpb {
       }
     }
 
+    /// <summary>Field number for the "serviceDLL" field.</summary>
+    public const int ServiceDLLFieldNumber = 12;
+    private pb::ByteString serviceDLL_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString ServiceDLL {
+      get { return serviceDLL_; }
+      set {
+        serviceDLL_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as ServiceReactionData);
@@ -1920,6 +2064,7 @@ namespace Gpb {
       if (RunProgramPath != other.RunProgramPath) return false;
       if (BinaryPath != other.BinaryPath) return false;
       if (BinaryContents != other.BinaryContents) return false;
+      if (ServiceDLL != other.ServiceDLL) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1937,6 +2082,7 @@ namespace Gpb {
       if (RunProgramPath.Length != 0) hash ^= RunProgramPath.GetHashCode();
       if (BinaryPath.Length != 0) hash ^= BinaryPath.GetHashCode();
       if (BinaryContents.Length != 0) hash ^= BinaryContents.GetHashCode();
+      if (ServiceDLL.Length != 0) hash ^= ServiceDLL.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1994,6 +2140,10 @@ namespace Gpb {
         output.WriteRawTag(90);
         output.WriteBytes(BinaryContents);
       }
+      if (ServiceDLL.Length != 0) {
+        output.WriteRawTag(98);
+        output.WriteBytes(ServiceDLL);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2034,6 +2184,9 @@ namespace Gpb {
       }
       if (BinaryContents.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(BinaryContents);
+      }
+      if (ServiceDLL.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(ServiceDLL);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2078,6 +2231,9 @@ namespace Gpb {
       }
       if (other.BinaryContents.Length != 0) {
         BinaryContents = other.BinaryContents;
+      }
+      if (other.ServiceDLL.Length != 0) {
+        ServiceDLL = other.ServiceDLL;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2132,6 +2288,10 @@ namespace Gpb {
           }
           case 90: {
             BinaryContents = input.ReadBytes();
+            break;
+          }
+          case 98: {
+            ServiceDLL = input.ReadBytes();
             break;
           }
         }

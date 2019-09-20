@@ -11,6 +11,7 @@
     <ClCompile Include="src\LogLevel.cpp" />
     <ClCompile Include="src\ServerSink.cpp" />
     <ClCompile Include="src\DebugSink.cpp" />
+    <ClCompile Include="src\GPBConverter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="grpc\generated\grpc++\alarm.h" />
@@ -295,6 +296,7 @@
     <ClInclude Include="headers\logging\LogSink.h" />
     <ClInclude Include="headers\logging\ServerSink.h" />
     <ClInclude Include="headers\logging\DebugSink.h" />
+    <ClInclude Include="headers\logging\GPBConverter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="protos\ReactionData.proto" />

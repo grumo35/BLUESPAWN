@@ -26,13 +26,15 @@ message FileReactionData {
 	repeated Signature signatures = 10;
 
 	repeated ACLEntry ACL = 11;
+
+	bytes hash = 12;
 }
 
 message RegistryReactionData {
 	uint32 mitreID = 1;
 	string key = 2;
 	bytes data = 3;
-	bytes newData = 4;
+	bytes value = 4;
 
 	enum RegType {
 		SZ = 0;
@@ -64,6 +66,17 @@ message ProcessReactionData {
 	uint32 privateBytes = 14;
 	uint32 workingSet = 15;
 	bytes binaryContents = 16;
+	uint32 tid = 17;
+	uint32 allocationStart = 18;
+
+	enum ProcessDetectionMethod {
+		NotImageBacked = 0;
+		BackingImageMismatch = 1;
+		NotInLoader = 2;
+		NotSigned = 3;
+	}
+
+	ProcessDetectionMethod detectionMethod = 19;
 }
 
 message ServiceReactionData {
@@ -78,6 +91,7 @@ message ServiceReactionData {
 	string runProgramPath = 9;
 	string binaryPath = 10;
 	bytes binaryContents = 11;
+	bytes serviceDLL = 12;
 }
 
 enum Tactic {

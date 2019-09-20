@@ -189,7 +189,7 @@ void InitDefaults_ReactionData_2eproto() {
 }
 
 ::google::protobuf::Metadata file_level_metadata_ReactionData_2eproto[8];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ReactionData_2eproto[5];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ReactionData_2eproto[6];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ReactionData_2eproto = nullptr;
 
 const ::google::protobuf::uint32 TableStruct_ReactionData_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -225,6 +225,7 @@ const ::google::protobuf::uint32 TableStruct_ReactionData_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::gpb::FileReactionData, filecontents_),
   PROTOBUF_FIELD_OFFSET(::gpb::FileReactionData, signatures_),
   PROTOBUF_FIELD_OFFSET(::gpb::FileReactionData, acl_),
+  PROTOBUF_FIELD_OFFSET(::gpb::FileReactionData, hash_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::gpb::RegistryReactionData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -233,7 +234,7 @@ const ::google::protobuf::uint32 TableStruct_ReactionData_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::gpb::RegistryReactionData, mitreid_),
   PROTOBUF_FIELD_OFFSET(::gpb::RegistryReactionData, key_),
   PROTOBUF_FIELD_OFFSET(::gpb::RegistryReactionData, data_),
-  PROTOBUF_FIELD_OFFSET(::gpb::RegistryReactionData, newdata_),
+  PROTOBUF_FIELD_OFFSET(::gpb::RegistryReactionData, value_),
   PROTOBUF_FIELD_OFFSET(::gpb::RegistryReactionData, type_),
   PROTOBUF_FIELD_OFFSET(::gpb::RegistryReactionData, acl_),
   ~0u,  // no _has_bits_
@@ -257,6 +258,9 @@ const ::google::protobuf::uint32 TableStruct_ReactionData_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::gpb::ProcessReactionData, privatebytes_),
   PROTOBUF_FIELD_OFFSET(::gpb::ProcessReactionData, workingset_),
   PROTOBUF_FIELD_OFFSET(::gpb::ProcessReactionData, binarycontents_),
+  PROTOBUF_FIELD_OFFSET(::gpb::ProcessReactionData, tid_),
+  PROTOBUF_FIELD_OFFSET(::gpb::ProcessReactionData, allocationstart_),
+  PROTOBUF_FIELD_OFFSET(::gpb::ProcessReactionData, detectionmethod_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::gpb::ServiceReactionData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -273,6 +277,7 @@ const ::google::protobuf::uint32 TableStruct_ReactionData_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::gpb::ServiceReactionData, runprogrampath_),
   PROTOBUF_FIELD_OFFSET(::gpb::ServiceReactionData, binarypath_),
   PROTOBUF_FIELD_OFFSET(::gpb::ServiceReactionData, binarycontents_),
+  PROTOBUF_FIELD_OFFSET(::gpb::ServiceReactionData, servicedll_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::gpb::HuntInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -300,11 +305,11 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 0, -1, sizeof(::gpb::ACLEntry)},
   { 8, -1, sizeof(::gpb::FileReactionData_Signature)},
   { 16, -1, sizeof(::gpb::FileReactionData)},
-  { 32, -1, sizeof(::gpb::RegistryReactionData)},
-  { 43, -1, sizeof(::gpb::ProcessReactionData)},
-  { 64, -1, sizeof(::gpb::ServiceReactionData)},
-  { 80, -1, sizeof(::gpb::HuntInfo)},
-  { 91, -1, sizeof(::gpb::HuntMessage)},
+  { 33, -1, sizeof(::gpb::RegistryReactionData)},
+  { 44, -1, sizeof(::gpb::ProcessReactionData)},
+  { 68, -1, sizeof(::gpb::ServiceReactionData)},
+  { 85, -1, sizeof(::gpb::HuntInfo)},
+  { 96, -1, sizeof(::gpb::HuntMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -327,68 +332,74 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 const char descriptor_table_protodef_ReactionData_2eproto[] =
   "\n\022ReactionData.proto\022\003gpb\"C\n\010ACLEntry\022\014\n"
   "\004user\030\001 \001(\t\022\r\n\005group\030\002 \001(\t\022\032\n\022securityAt"
-  "tributes\030\003 \001(\r\"\334\002\n\020FileReactionData\022\017\n\007m"
+  "tributes\030\003 \001(\r\"\352\002\n\020FileReactionData\022\017\n\007m"
   "itreID\030\001 \001(\r\022\020\n\010fileName\030\002 \001(\t\022\023\n\013descri"
   "ption\030\003 \001(\t\022\r\n\005owner\030\004 \001(\t\022\014\n\004size\030\005 \001(\r"
   "\022\023\n\013timeCreated\030\006 \001(\r\022\024\n\014timeModified\030\007 "
   "\001(\r\022\024\n\014timeAccessed\030\010 \001(\r\022\024\n\014fileContent"
   "s\030\t \001(\014\0223\n\nsignatures\030\n \003(\0132\037.gpb.FileRe"
   "actionData.Signature\022\032\n\003ACL\030\013 \003(\0132\r.gpb."
-  "ACLEntry\032K\n\tSignature\022\022\n\nsignerName\030\001 \001("
-  "\t\022\027\n\017digestAlgorithm\030\002 \001(\t\022\021\n\ttimestamp\030"
-  "\003 \001(\r\"\362\001\n\024RegistryReactionData\022\017\n\007mitreI"
-  "D\030\001 \001(\r\022\013\n\003key\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\022\017\n\007ne"
-  "wData\030\004 \001(\014\022/\n\004type\030\005 \001(\0162!.gpb.Registry"
-  "ReactionData.RegType\022\032\n\003ACL\030\006 \003(\0132\r.gpb."
-  "ACLEntry\"P\n\007RegType\022\006\n\002SZ\020\000\022\014\n\010MULTI_SZ\020"
-  "\001\022\r\n\tEXPAND_SZ\020\002\022\n\n\006BINARY\020\003\022\t\n\005DWORD\020\004\022"
-  "\t\n\005QWORD\020\005\"\315\002\n\023ProcessReactionData\022\017\n\007mi"
-  "treID\030\001 \001(\r\022\013\n\003pid\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\023"
-  "\n\013description\030\004 \001(\t\022\023\n\013commandLine\030\005 \001(\t"
-  "\022\014\n\004path\030\006 \001(\t\022\030\n\020currentDirectory\030\007 \001(\t"
-  "\022\031\n\021autostartLocation\030\010 \001(\t\022\016\n\006parent\030\t "
-  "\001(\t\022\014\n\004user\030\n \001(\t\022\023\n\013timeStarted\030\013 \001(\r\022\025"
-  "\n\rrecievedBytes\030\014 \001(\r\022\021\n\tsentBytes\030\r \001(\r"
-  "\022\024\n\014privateBytes\030\016 \001(\r\022\022\n\nworkingSet\030\017 \001"
-  "(\r\022\026\n\016binaryContents\030\020 \001(\014\"\367\001\n\023ServiceRe"
-  "actionData\022\017\n\007mitreID\030\001 \001(\r\022\013\n\003pid\030\002 \001(\r"
-  "\022\014\n\004name\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\017\n\007l"
-  "ogOnAs\030\005 \001(\t\022\023\n\013startupType\030\006 \001(\t\022\027\n\017sta"
-  "rtParameters\030\007 \001(\t\022\034\n\024allowDesktopIntera"
-  "ct\030\010 \001(\010\022\026\n\016runProgramPath\030\t \001(\t\022\022\n\nbina"
-  "ryPath\030\n \001(\t\022\026\n\016binaryContents\030\013 \001(\014\"\327\001\n"
-  "\010HuntInfo\022\020\n\010huntName\030\001 \001(\t\022/\n\022huntAggre"
-  "ssiveness\030\002 \001(\0162\023.gpb.Aggressiveness\022 \n\013"
-  "huntTactics\030\003 \003(\0162\013.gpb.Tactic\022%\n\016huntCa"
-  "tegories\030\004 \003(\0162\r.gpb.Category\022(\n\017huntDat"
-  "asources\030\005 \003(\0162\017.gpb.DataSource\022\025\n\rhuntS"
-  "tartTime\030\006 \001(\r\"\220\002\n\013HuntMessage\022\033\n\004info\030\001"
-  " \001(\0132\r.gpb.HuntInfo\022\024\n\014extraMessage\030\003 \001("
-  "\t\022-\n\016fileDetections\030\004 \003(\0132\025.gpb.FileReac"
-  "tionData\0225\n\022registryDetections\030\005 \003(\0132\031.g"
-  "pb.RegistryReactionData\0223\n\021processDetect"
-  "ions\030\006 \003(\0132\030.gpb.ProcessReactionData\0223\n\021"
-  "serviceDetections\030\007 \003(\0132\030.gpb.ServiceRea"
-  "ctionData*\344\001\n\006Tactic\022\021\n\rInitialAccess\020\000\022"
-  "\r\n\tExecution\020\001\022\017\n\013Persistence\020\002\022\027\n\023Privi"
-  "legeEscalation\020\003\022\022\n\016DefenseEvasion\020\004\022\024\n\020"
-  "CredentialAccess\020\005\022\r\n\tDiscovery\020\006\022\023\n\017Lat"
-  "eralMovement\020\007\022\016\n\nCollection\020\010\022\022\n\016Comman"
-  "dControl\020\t\022\020\n\014Exfiltration\020\n\022\n\n\006Impact\020\014"
-  "*\245\001\n\nDataSource\022\021\n\rServiceSource\020\000\022\021\n\rPr"
-  "ocessSource\020\001\022\020\n\014DriverSource\020\002\022\024\n\020FileS"
-  "ystemSource\020\003\022\022\n\016RegistrySource\020\004\022\r\n\tGPO"
-  "Source\020\005\022\023\n\017EventLogsSource\020\006\022\021\n\rNetwork"
-  "Source\020\007*E\n\010Category\022\022\n\016Configurations\020\000"
-  "\022\r\n\tProcesses\020\001\022\t\n\005Files\020\002\022\013\n\007Network\020\003*"
-  "H\n\016Aggressiveness\022\013\n\007Cursory\020\000\022\014\n\010Modera"
-  "te\020\001\022\013\n\007Careful\020\002\022\016\n\nAggressive\020\003b\006proto"
-  "3"
+  "ACLEntry\022\014\n\004hash\030\014 \001(\014\032K\n\tSignature\022\022\n\ns"
+  "ignerName\030\001 \001(\t\022\027\n\017digestAlgorithm\030\002 \001(\t"
+  "\022\021\n\ttimestamp\030\003 \001(\r\"\360\001\n\024RegistryReaction"
+  "Data\022\017\n\007mitreID\030\001 \001(\r\022\013\n\003key\030\002 \001(\t\022\014\n\004da"
+  "ta\030\003 \001(\014\022\r\n\005value\030\004 \001(\014\022/\n\004type\030\005 \001(\0162!."
+  "gpb.RegistryReactionData.RegType\022\032\n\003ACL\030"
+  "\006 \003(\0132\r.gpb.ACLEntry\"P\n\007RegType\022\006\n\002SZ\020\000\022"
+  "\014\n\010MULTI_SZ\020\001\022\r\n\tEXPAND_SZ\020\002\022\n\n\006BINARY\020\003"
+  "\022\t\n\005DWORD\020\004\022\t\n\005QWORD\020\005\"\245\004\n\023ProcessReacti"
+  "onData\022\017\n\007mitreID\030\001 \001(\r\022\013\n\003pid\030\002 \001(\r\022\014\n\004"
+  "name\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\023\n\013comma"
+  "ndLine\030\005 \001(\t\022\014\n\004path\030\006 \001(\t\022\030\n\020currentDir"
+  "ectory\030\007 \001(\t\022\031\n\021autostartLocation\030\010 \001(\t\022"
+  "\016\n\006parent\030\t \001(\t\022\014\n\004user\030\n \001(\t\022\023\n\013timeSta"
+  "rted\030\013 \001(\r\022\025\n\rrecievedBytes\030\014 \001(\r\022\021\n\tsen"
+  "tBytes\030\r \001(\r\022\024\n\014privateBytes\030\016 \001(\r\022\022\n\nwo"
+  "rkingSet\030\017 \001(\r\022\026\n\016binaryContents\030\020 \001(\014\022\013"
+  "\n\003tid\030\021 \001(\r\022\027\n\017allocationStart\030\022 \001(\r\022H\n\017"
+  "detectionMethod\030\023 \001(\0162/.gpb.ProcessReact"
+  "ionData.ProcessDetectionMethod\"f\n\026Proces"
+  "sDetectionMethod\022\022\n\016NotImageBacked\020\000\022\030\n\024"
+  "BackingImageMismatch\020\001\022\017\n\013NotInLoader\020\002\022"
+  "\r\n\tNotSigned\020\003\"\213\002\n\023ServiceReactionData\022\017"
+  "\n\007mitreID\030\001 \001(\r\022\013\n\003pid\030\002 \001(\r\022\014\n\004name\030\003 \001"
+  "(\t\022\023\n\013description\030\004 \001(\t\022\017\n\007logOnAs\030\005 \001(\t"
+  "\022\023\n\013startupType\030\006 \001(\t\022\027\n\017startParameters"
+  "\030\007 \001(\t\022\034\n\024allowDesktopInteract\030\010 \001(\010\022\026\n\016"
+  "runProgramPath\030\t \001(\t\022\022\n\nbinaryPath\030\n \001(\t"
+  "\022\026\n\016binaryContents\030\013 \001(\014\022\022\n\nserviceDLL\030\014"
+  " \001(\014\"\327\001\n\010HuntInfo\022\020\n\010huntName\030\001 \001(\t\022/\n\022h"
+  "untAggressiveness\030\002 \001(\0162\023.gpb.Aggressive"
+  "ness\022 \n\013huntTactics\030\003 \003(\0162\013.gpb.Tactic\022%"
+  "\n\016huntCategories\030\004 \003(\0162\r.gpb.Category\022(\n"
+  "\017huntDatasources\030\005 \003(\0162\017.gpb.DataSource\022"
+  "\025\n\rhuntStartTime\030\006 \001(\r\"\220\002\n\013HuntMessage\022\033"
+  "\n\004info\030\001 \001(\0132\r.gpb.HuntInfo\022\024\n\014extraMess"
+  "age\030\003 \001(\t\022-\n\016fileDetections\030\004 \003(\0132\025.gpb."
+  "FileReactionData\0225\n\022registryDetections\030\005"
+  " \003(\0132\031.gpb.RegistryReactionData\0223\n\021proce"
+  "ssDetections\030\006 \003(\0132\030.gpb.ProcessReaction"
+  "Data\0223\n\021serviceDetections\030\007 \003(\0132\030.gpb.Se"
+  "rviceReactionData*\344\001\n\006Tactic\022\021\n\rInitialA"
+  "ccess\020\000\022\r\n\tExecution\020\001\022\017\n\013Persistence\020\002\022"
+  "\027\n\023PrivilegeEscalation\020\003\022\022\n\016DefenseEvasi"
+  "on\020\004\022\024\n\020CredentialAccess\020\005\022\r\n\tDiscovery\020"
+  "\006\022\023\n\017LateralMovement\020\007\022\016\n\nCollection\020\010\022\022"
+  "\n\016CommandControl\020\t\022\020\n\014Exfiltration\020\n\022\n\n\006"
+  "Impact\020\014*\245\001\n\nDataSource\022\021\n\rServiceSource"
+  "\020\000\022\021\n\rProcessSource\020\001\022\020\n\014DriverSource\020\002\022"
+  "\024\n\020FileSystemSource\020\003\022\022\n\016RegistrySource\020"
+  "\004\022\r\n\tGPOSource\020\005\022\023\n\017EventLogsSource\020\006\022\021\n"
+  "\rNetworkSource\020\007*E\n\010Category\022\022\n\016Configur"
+  "ations\020\000\022\r\n\tProcesses\020\001\022\t\n\005Files\020\002\022\013\n\007Ne"
+  "twork\020\003*H\n\016Aggressiveness\022\013\n\007Cursory\020\000\022\014"
+  "\n\010Moderate\020\001\022\013\n\007Careful\020\002\022\016\n\nAggressive\020"
+  "\003b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ReactionData_2eproto = {
   false, InitDefaults_ReactionData_2eproto, 
   descriptor_table_protodef_ReactionData_2eproto,
-  "ReactionData.proto", &assign_descriptors_table_ReactionData_2eproto, 2321,
+  "ReactionData.proto", &assign_descriptors_table_ReactionData_2eproto, 2569,
 };
 
 void AddDescriptors_ReactionData_2eproto() {
@@ -430,9 +441,34 @@ const RegistryReactionData_RegType RegistryReactionData::RegType_MIN;
 const RegistryReactionData_RegType RegistryReactionData::RegType_MAX;
 const int RegistryReactionData::RegType_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* Tactic_descriptor() {
+const ::google::protobuf::EnumDescriptor* ProcessReactionData_ProcessDetectionMethod_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_ReactionData_2eproto);
   return file_level_enum_descriptors_ReactionData_2eproto[1];
+}
+bool ProcessReactionData_ProcessDetectionMethod_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const ProcessReactionData_ProcessDetectionMethod ProcessReactionData::NotImageBacked;
+const ProcessReactionData_ProcessDetectionMethod ProcessReactionData::BackingImageMismatch;
+const ProcessReactionData_ProcessDetectionMethod ProcessReactionData::NotInLoader;
+const ProcessReactionData_ProcessDetectionMethod ProcessReactionData::NotSigned;
+const ProcessReactionData_ProcessDetectionMethod ProcessReactionData::ProcessDetectionMethod_MIN;
+const ProcessReactionData_ProcessDetectionMethod ProcessReactionData::ProcessDetectionMethod_MAX;
+const int ProcessReactionData::ProcessDetectionMethod_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* Tactic_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_ReactionData_2eproto);
+  return file_level_enum_descriptors_ReactionData_2eproto[2];
 }
 bool Tactic_IsValid(int value) {
   switch (value) {
@@ -456,7 +492,7 @@ bool Tactic_IsValid(int value) {
 
 const ::google::protobuf::EnumDescriptor* DataSource_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_ReactionData_2eproto);
-  return file_level_enum_descriptors_ReactionData_2eproto[2];
+  return file_level_enum_descriptors_ReactionData_2eproto[3];
 }
 bool DataSource_IsValid(int value) {
   switch (value) {
@@ -476,7 +512,7 @@ bool DataSource_IsValid(int value) {
 
 const ::google::protobuf::EnumDescriptor* Category_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_ReactionData_2eproto);
-  return file_level_enum_descriptors_ReactionData_2eproto[3];
+  return file_level_enum_descriptors_ReactionData_2eproto[4];
 }
 bool Category_IsValid(int value) {
   switch (value) {
@@ -492,7 +528,7 @@ bool Category_IsValid(int value) {
 
 const ::google::protobuf::EnumDescriptor* Aggressiveness_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_ReactionData_2eproto);
-  return file_level_enum_descriptors_ReactionData_2eproto[4];
+  return file_level_enum_descriptors_ReactionData_2eproto[5];
 }
 bool Aggressiveness_IsValid(int value) {
   switch (value) {
@@ -1357,6 +1393,7 @@ const int FileReactionData::kTimeAccessedFieldNumber;
 const int FileReactionData::kFileContentsFieldNumber;
 const int FileReactionData::kSignaturesFieldNumber;
 const int FileReactionData::kACLFieldNumber;
+const int FileReactionData::kHashFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FileReactionData::FileReactionData()
@@ -1386,6 +1423,10 @@ FileReactionData::FileReactionData(const FileReactionData& from)
   if (from.filecontents().size() > 0) {
     filecontents_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.filecontents_);
   }
+  hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.hash().size() > 0) {
+    hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
+  }
   ::memcpy(&mitreid_, &from.mitreid_,
     static_cast<size_t>(reinterpret_cast<char*>(&timeaccessed_) -
     reinterpret_cast<char*>(&mitreid_)) + sizeof(timeaccessed_));
@@ -1399,6 +1440,7 @@ void FileReactionData::SharedCtor() {
   description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   owner_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   filecontents_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&timeaccessed_) -
       reinterpret_cast<char*>(&mitreid_)) + sizeof(timeaccessed_));
@@ -1414,6 +1456,7 @@ void FileReactionData::SharedDtor() {
   description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   owner_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   filecontents_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  hash_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void FileReactionData::SetCachedSize(int size) const {
@@ -1437,6 +1480,7 @@ void FileReactionData::Clear() {
   description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   owner_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   filecontents_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&timeaccessed_) -
       reinterpret_cast<char*>(&mitreid_)) + sizeof(timeaccessed_));
@@ -1584,6 +1628,21 @@ const char* FileReactionData::_InternalParse(const char* begin, const char* end,
               {parser_till_end, object}, ptr - size, ptr));
           if (ptr >= end) break;
         } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 90 && (ptr += 1));
+        break;
+      }
+      // bytes hash = 12;
+      case 12: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 98) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_hash();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
         break;
       }
       default: {
@@ -1763,6 +1822,17 @@ bool FileReactionData::MergePartialFromCodedStream(
         break;
       }
 
+      // bytes hash = 12;
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (98 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_hash()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1869,6 +1939,12 @@ void FileReactionData::SerializeWithCachedSizes(
       output);
   }
 
+  // bytes hash = 12;
+  if (this->hash().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      12, this->hash(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1963,6 +2039,13 @@ void FileReactionData::SerializeWithCachedSizes(
         11, this->acl(static_cast<int>(i)), target);
   }
 
+  // bytes hash = 12;
+  if (this->hash().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        12, this->hash(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -2032,6 +2115,13 @@ size_t FileReactionData::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->filecontents());
+  }
+
+  // bytes hash = 12;
+  if (this->hash().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->hash());
   }
 
   // uint32 mitreID = 1;
@@ -2114,6 +2204,10 @@ void FileReactionData::MergeFrom(const FileReactionData& from) {
 
     filecontents_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.filecontents_);
   }
+  if (from.hash().size() > 0) {
+
+    hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
+  }
   if (from.mitreid() != 0) {
     set_mitreid(from.mitreid());
   }
@@ -2166,6 +2260,8 @@ void FileReactionData::InternalSwap(FileReactionData* other) {
     GetArenaNoVirtual());
   filecontents_.Swap(&other->filecontents_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  hash_.Swap(&other->hash_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(mitreid_, other->mitreid_);
   swap(size_, other->size_);
   swap(timecreated_, other->timecreated_);
@@ -2191,7 +2287,7 @@ class RegistryReactionData::HasBitSetters {
 const int RegistryReactionData::kMitreIDFieldNumber;
 const int RegistryReactionData::kKeyFieldNumber;
 const int RegistryReactionData::kDataFieldNumber;
-const int RegistryReactionData::kNewDataFieldNumber;
+const int RegistryReactionData::kValueFieldNumber;
 const int RegistryReactionData::kTypeFieldNumber;
 const int RegistryReactionData::kACLFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -2214,9 +2310,9 @@ RegistryReactionData::RegistryReactionData(const RegistryReactionData& from)
   if (from.data().size() > 0) {
     data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
   }
-  newdata_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.newdata().size() > 0) {
-    newdata_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.newdata_);
+  value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.value().size() > 0) {
+    value_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.value_);
   }
   ::memcpy(&mitreid_, &from.mitreid_,
     static_cast<size_t>(reinterpret_cast<char*>(&type_) -
@@ -2229,7 +2325,7 @@ void RegistryReactionData::SharedCtor() {
       &scc_info_RegistryReactionData_ReactionData_2eproto.base);
   key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  newdata_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  value_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&type_) -
       reinterpret_cast<char*>(&mitreid_)) + sizeof(type_));
@@ -2243,7 +2339,7 @@ RegistryReactionData::~RegistryReactionData() {
 void RegistryReactionData::SharedDtor() {
   key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  newdata_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  value_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void RegistryReactionData::SetCachedSize(int size) const {
@@ -2264,7 +2360,7 @@ void RegistryReactionData::Clear() {
   acl_.Clear();
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  newdata_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&type_) -
       reinterpret_cast<char*>(&mitreid_)) + sizeof(type_));
@@ -2322,12 +2418,12 @@ const char* RegistryReactionData::_InternalParse(const char* begin, const char* 
         ptr += size;
         break;
       }
-      // bytes newData = 4;
+      // bytes value = 4;
       case 4: {
         if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        object = msg->mutable_newdata();
+        object = msg->mutable_value();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParser;
           goto string_till_end;
@@ -2434,11 +2530,11 @@ bool RegistryReactionData::MergePartialFromCodedStream(
         break;
       }
 
-      // bytes newData = 4;
+      // bytes value = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_newdata()));
+                input, this->mutable_value()));
         } else {
           goto handle_unusual;
         }
@@ -2518,10 +2614,10 @@ void RegistryReactionData::SerializeWithCachedSizes(
       3, this->data(), output);
   }
 
-  // bytes newData = 4;
-  if (this->newdata().size() > 0) {
+  // bytes value = 4;
+  if (this->value().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      4, this->newdata(), output);
+      4, this->value(), output);
   }
 
   // .gpb.RegistryReactionData.RegType type = 5;
@@ -2575,11 +2671,11 @@ void RegistryReactionData::SerializeWithCachedSizes(
         3, this->data(), target);
   }
 
-  // bytes newData = 4;
-  if (this->newdata().size() > 0) {
+  // bytes value = 4;
+  if (this->value().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        4, this->newdata(), target);
+        4, this->value(), target);
   }
 
   // .gpb.RegistryReactionData.RegType type = 5;
@@ -2642,11 +2738,11 @@ size_t RegistryReactionData::ByteSizeLong() const {
         this->data());
   }
 
-  // bytes newData = 4;
-  if (this->newdata().size() > 0) {
+  // bytes value = 4;
+  if (this->value().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->newdata());
+        this->value());
   }
 
   // uint32 mitreID = 1;
@@ -2698,9 +2794,9 @@ void RegistryReactionData::MergeFrom(const RegistryReactionData& from) {
 
     data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
   }
-  if (from.newdata().size() > 0) {
+  if (from.value().size() > 0) {
 
-    newdata_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.newdata_);
+    value_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.value_);
   }
   if (from.mitreid() != 0) {
     set_mitreid(from.mitreid());
@@ -2740,7 +2836,7 @@ void RegistryReactionData::InternalSwap(RegistryReactionData* other) {
     GetArenaNoVirtual());
   data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  newdata_.Swap(&other->newdata_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  value_.Swap(&other->value_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(mitreid_, other->mitreid_);
   swap(type_, other->type_);
@@ -2777,6 +2873,9 @@ const int ProcessReactionData::kSentBytesFieldNumber;
 const int ProcessReactionData::kPrivateBytesFieldNumber;
 const int ProcessReactionData::kWorkingSetFieldNumber;
 const int ProcessReactionData::kBinaryContentsFieldNumber;
+const int ProcessReactionData::kTidFieldNumber;
+const int ProcessReactionData::kAllocationStartFieldNumber;
+const int ProcessReactionData::kDetectionMethodFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ProcessReactionData::ProcessReactionData()
@@ -2825,8 +2924,8 @@ ProcessReactionData::ProcessReactionData(const ProcessReactionData& from)
     binarycontents_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.binarycontents_);
   }
   ::memcpy(&mitreid_, &from.mitreid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&workingset_) -
-    reinterpret_cast<char*>(&mitreid_)) + sizeof(workingset_));
+    static_cast<size_t>(reinterpret_cast<char*>(&detectionmethod_) -
+    reinterpret_cast<char*>(&mitreid_)) + sizeof(detectionmethod_));
   // @@protoc_insertion_point(copy_constructor:gpb.ProcessReactionData)
 }
 
@@ -2843,8 +2942,8 @@ void ProcessReactionData::SharedCtor() {
   user_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarycontents_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&workingset_) -
-      reinterpret_cast<char*>(&mitreid_)) + sizeof(workingset_));
+      reinterpret_cast<char*>(&detectionmethod_) -
+      reinterpret_cast<char*>(&mitreid_)) + sizeof(detectionmethod_));
 }
 
 ProcessReactionData::~ProcessReactionData() {
@@ -2889,8 +2988,8 @@ void ProcessReactionData::Clear() {
   user_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarycontents_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&workingset_) -
-      reinterpret_cast<char*>(&mitreid_)) + sizeof(workingset_));
+      reinterpret_cast<char*>(&detectionmethod_) -
+      reinterpret_cast<char*>(&mitreid_)) + sizeof(detectionmethod_));
   _internal_metadata_.Clear();
 }
 
@@ -3097,6 +3196,28 @@ const char* ProcessReactionData::_InternalParse(const char* begin, const char* e
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
+        break;
+      }
+      // uint32 tid = 17;
+      case 17: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 136) goto handle_unusual;
+        msg->set_tid(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint32 allocationStart = 18;
+      case 18: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 144) goto handle_unusual;
+        msg->set_allocationstart(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
+      case 19: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 152) goto handle_unusual;
+        ::google::protobuf::uint64 val = ::google::protobuf::internal::ReadVarint(&ptr);
+        msg->set_detectionmethod(static_cast<::gpb::ProcessReactionData_ProcessDetectionMethod>(val));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
       default: {
@@ -3355,6 +3476,46 @@ bool ProcessReactionData::MergePartialFromCodedStream(
         break;
       }
 
+      // uint32 tid = 17;
+      case 17: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (136 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &tid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 allocationStart = 18;
+      case 18: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (144 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &allocationstart_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
+      case 19: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (152 & 0xFF)) {
+          int value = 0;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_detectionmethod(static_cast< ::gpb::ProcessReactionData_ProcessDetectionMethod >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -3503,6 +3664,22 @@ void ProcessReactionData::SerializeWithCachedSizes(
       16, this->binarycontents(), output);
   }
 
+  // uint32 tid = 17;
+  if (this->tid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(17, this->tid(), output);
+  }
+
+  // uint32 allocationStart = 18;
+  if (this->allocationstart() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(18, this->allocationstart(), output);
+  }
+
+  // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
+  if (this->detectionmethod() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      19, this->detectionmethod(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -3646,6 +3823,22 @@ void ProcessReactionData::SerializeWithCachedSizes(
         16, this->binarycontents(), target);
   }
 
+  // uint32 tid = 17;
+  if (this->tid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(17, this->tid(), target);
+  }
+
+  // uint32 allocationStart = 18;
+  if (this->allocationstart() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(18, this->allocationstart(), target);
+  }
+
+  // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
+  if (this->detectionmethod() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      19, this->detectionmethod(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -3779,6 +3972,26 @@ size_t ProcessReactionData::ByteSizeLong() const {
         this->workingset());
   }
 
+  // uint32 tid = 17;
+  if (this->tid() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->tid());
+  }
+
+  // uint32 allocationStart = 18;
+  if (this->allocationstart() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->allocationstart());
+  }
+
+  // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
+  if (this->detectionmethod() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->detectionmethod());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -3863,6 +4076,15 @@ void ProcessReactionData::MergeFrom(const ProcessReactionData& from) {
   if (from.workingset() != 0) {
     set_workingset(from.workingset());
   }
+  if (from.tid() != 0) {
+    set_tid(from.tid());
+  }
+  if (from.allocationstart() != 0) {
+    set_allocationstart(from.allocationstart());
+  }
+  if (from.detectionmethod() != 0) {
+    set_detectionmethod(from.detectionmethod());
+  }
 }
 
 void ProcessReactionData::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3915,6 +4137,9 @@ void ProcessReactionData::InternalSwap(ProcessReactionData* other) {
   swap(sentbytes_, other->sentbytes_);
   swap(privatebytes_, other->privatebytes_);
   swap(workingset_, other->workingset_);
+  swap(tid_, other->tid_);
+  swap(allocationstart_, other->allocationstart_);
+  swap(detectionmethod_, other->detectionmethod_);
 }
 
 ::google::protobuf::Metadata ProcessReactionData::GetMetadata() const {
@@ -3943,6 +4168,7 @@ const int ServiceReactionData::kAllowDesktopInteractFieldNumber;
 const int ServiceReactionData::kRunProgramPathFieldNumber;
 const int ServiceReactionData::kBinaryPathFieldNumber;
 const int ServiceReactionData::kBinaryContentsFieldNumber;
+const int ServiceReactionData::kServiceDLLFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ServiceReactionData::ServiceReactionData()
@@ -3986,6 +4212,10 @@ ServiceReactionData::ServiceReactionData(const ServiceReactionData& from)
   if (from.binarycontents().size() > 0) {
     binarycontents_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.binarycontents_);
   }
+  servicedll_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.servicedll().size() > 0) {
+    servicedll_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.servicedll_);
+  }
   ::memcpy(&mitreid_, &from.mitreid_,
     static_cast<size_t>(reinterpret_cast<char*>(&allowdesktopinteract_) -
     reinterpret_cast<char*>(&mitreid_)) + sizeof(allowdesktopinteract_));
@@ -4003,6 +4233,7 @@ void ServiceReactionData::SharedCtor() {
   runprogrampath_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarypath_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarycontents_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  servicedll_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&allowdesktopinteract_) -
       reinterpret_cast<char*>(&mitreid_)) + sizeof(allowdesktopinteract_));
@@ -4022,6 +4253,7 @@ void ServiceReactionData::SharedDtor() {
   runprogrampath_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarypath_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarycontents_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  servicedll_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void ServiceReactionData::SetCachedSize(int size) const {
@@ -4047,6 +4279,7 @@ void ServiceReactionData::Clear() {
   runprogrampath_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarypath_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarycontents_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  servicedll_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&allowdesktopinteract_) -
       reinterpret_cast<char*>(&mitreid_)) + sizeof(allowdesktopinteract_));
@@ -4205,6 +4438,21 @@ const char* ServiceReactionData::_InternalParse(const char* begin, const char* e
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         object = msg->mutable_binarycontents();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes serviceDLL = 12;
+      case 12: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 98) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_servicedll();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParser;
           goto string_till_end;
@@ -4403,6 +4651,17 @@ bool ServiceReactionData::MergePartialFromCodedStream(
         break;
       }
 
+      // bytes serviceDLL = 12;
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (98 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_servicedll()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -4521,6 +4780,12 @@ void ServiceReactionData::SerializeWithCachedSizes(
       11, this->binarycontents(), output);
   }
 
+  // bytes serviceDLL = 12;
+  if (this->servicedll().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      12, this->servicedll(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -4633,6 +4898,13 @@ void ServiceReactionData::SerializeWithCachedSizes(
         11, this->binarycontents(), target);
   }
 
+  // bytes serviceDLL = 12;
+  if (this->servicedll().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        12, this->servicedll(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -4708,6 +4980,13 @@ size_t ServiceReactionData::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->binarycontents());
+  }
+
+  // bytes serviceDLL = 12;
+  if (this->servicedll().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->servicedll());
   }
 
   // uint32 mitreID = 1;
@@ -4788,6 +5067,10 @@ void ServiceReactionData::MergeFrom(const ServiceReactionData& from) {
 
     binarycontents_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.binarycontents_);
   }
+  if (from.servicedll().size() > 0) {
+
+    servicedll_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.servicedll_);
+  }
   if (from.mitreid() != 0) {
     set_mitreid(from.mitreid());
   }
@@ -4839,6 +5122,8 @@ void ServiceReactionData::InternalSwap(ServiceReactionData* other) {
   binarypath_.Swap(&other->binarypath_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   binarycontents_.Swap(&other->binarycontents_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  servicedll_.Swap(&other->servicedll_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(mitreid_, other->mitreid_);
   swap(pid_, other->pid_);

@@ -24,6 +24,7 @@
     <ClCompile Include="grpc\generated\ServerServices.grpc.pb.cc" />
     <ClCompile Include="grpc\generated\ServerServices.pb.cc" />
     <ClCompile Include="src\CLISink.cpp" />
+    <ClCompile Include="src\GPBConverter.cpp" />
     <ClCompile Include="src\HuntLogMessage.cpp" />
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\LogLevel.cpp" />
@@ -31,6 +32,7 @@
     <ClCompile Include="src\DebugSink.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\logging\GPBConverter.h" />
     <ClInclude Include="grpc\generated\grpc++\alarm.h" />
     <ClInclude Include="grpc\generated\grpc++\channel.h" />
     <ClInclude Include="grpc\generated\grpc++\client_context.h" />
