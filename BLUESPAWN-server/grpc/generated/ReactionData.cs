@@ -34,60 +34,60 @@ namespace Gpb {
             "aWxlUmVhY3Rpb25EYXRhLlNpZ25hdHVyZRIaCgNBQ0wYCyADKAsyDS5ncGIu",
             "QUNMRW50cnkSDAoEaGFzaBgMIAEoDBpLCglTaWduYXR1cmUSEgoKc2lnbmVy",
             "TmFtZRgBIAEoCRIXCg9kaWdlc3RBbGdvcml0aG0YAiABKAkSEQoJdGltZXN0",
-            "YW1wGAMgASgNIvABChRSZWdpc3RyeVJlYWN0aW9uRGF0YRIPCgdtaXRyZUlE",
-            "GAEgASgNEgsKA2tleRgCIAEoCRIMCgRkYXRhGAMgASgMEg0KBXZhbHVlGAQg",
-            "ASgMEi8KBHR5cGUYBSABKA4yIS5ncGIuUmVnaXN0cnlSZWFjdGlvbkRhdGEu",
-            "UmVnVHlwZRIaCgNBQ0wYBiADKAsyDS5ncGIuQUNMRW50cnkiUAoHUmVnVHlw",
-            "ZRIGCgJTWhAAEgwKCE1VTFRJX1NaEAESDQoJRVhQQU5EX1NaEAISCgoGQklO",
-            "QVJZEAMSCQoFRFdPUkQQBBIJCgVRV09SRBAFIqUEChNQcm9jZXNzUmVhY3Rp",
-            "b25EYXRhEg8KB21pdHJlSUQYASABKA0SCwoDcGlkGAIgASgNEgwKBG5hbWUY",
-            "AyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkSEwoLY29tbWFuZExpbmUYBSAB",
-            "KAkSDAoEcGF0aBgGIAEoCRIYChBjdXJyZW50RGlyZWN0b3J5GAcgASgJEhkK",
-            "EWF1dG9zdGFydExvY2F0aW9uGAggASgJEg4KBnBhcmVudBgJIAEoCRIMCgR1",
-            "c2VyGAogASgJEhMKC3RpbWVTdGFydGVkGAsgASgNEhUKDXJlY2lldmVkQnl0",
-            "ZXMYDCABKA0SEQoJc2VudEJ5dGVzGA0gASgNEhQKDHByaXZhdGVCeXRlcxgO",
-            "IAEoDRISCgp3b3JraW5nU2V0GA8gASgNEhYKDmJpbmFyeUNvbnRlbnRzGBAg",
-            "ASgMEgsKA3RpZBgRIAEoDRIXCg9hbGxvY2F0aW9uU3RhcnQYEiABKA0SSAoP",
-            "ZGV0ZWN0aW9uTWV0aG9kGBMgASgOMi8uZ3BiLlByb2Nlc3NSZWFjdGlvbkRh",
-            "dGEuUHJvY2Vzc0RldGVjdGlvbk1ldGhvZCJmChZQcm9jZXNzRGV0ZWN0aW9u",
-            "TWV0aG9kEhIKDk5vdEltYWdlQmFja2VkEAASGAoUQmFja2luZ0ltYWdlTWlz",
-            "bWF0Y2gQARIPCgtOb3RJbkxvYWRlchACEg0KCU5vdFNpZ25lZBADIosCChNT",
-            "ZXJ2aWNlUmVhY3Rpb25EYXRhEg8KB21pdHJlSUQYASABKA0SCwoDcGlkGAIg",
-            "ASgNEgwKBG5hbWUYAyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkSDwoHbG9n",
-            "T25BcxgFIAEoCRITCgtzdGFydHVwVHlwZRgGIAEoCRIXCg9zdGFydFBhcmFt",
-            "ZXRlcnMYByABKAkSHAoUYWxsb3dEZXNrdG9wSW50ZXJhY3QYCCABKAgSFgoO",
-            "cnVuUHJvZ3JhbVBhdGgYCSABKAkSEgoKYmluYXJ5UGF0aBgKIAEoCRIWCg5i",
-            "aW5hcnlDb250ZW50cxgLIAEoDBISCgpzZXJ2aWNlRExMGAwgASgMItcBCghI",
-            "dW50SW5mbxIQCghodW50TmFtZRgBIAEoCRIvChJodW50QWdncmVzc2l2ZW5l",
-            "c3MYAiABKA4yEy5ncGIuQWdncmVzc2l2ZW5lc3MSIAoLaHVudFRhY3RpY3MY",
-            "AyADKA4yCy5ncGIuVGFjdGljEiUKDmh1bnRDYXRlZ29yaWVzGAQgAygOMg0u",
-            "Z3BiLkNhdGVnb3J5EigKD2h1bnREYXRhc291cmNlcxgFIAMoDjIPLmdwYi5E",
-            "YXRhU291cmNlEhUKDWh1bnRTdGFydFRpbWUYBiABKA0ikAIKC0h1bnRNZXNz",
-            "YWdlEhsKBGluZm8YASABKAsyDS5ncGIuSHVudEluZm8SFAoMZXh0cmFNZXNz",
-            "YWdlGAMgASgJEi0KDmZpbGVEZXRlY3Rpb25zGAQgAygLMhUuZ3BiLkZpbGVS",
-            "ZWFjdGlvbkRhdGESNQoScmVnaXN0cnlEZXRlY3Rpb25zGAUgAygLMhkuZ3Bi",
-            "LlJlZ2lzdHJ5UmVhY3Rpb25EYXRhEjMKEXByb2Nlc3NEZXRlY3Rpb25zGAYg",
-            "AygLMhguZ3BiLlByb2Nlc3NSZWFjdGlvbkRhdGESMwoRc2VydmljZURldGVj",
-            "dGlvbnMYByADKAsyGC5ncGIuU2VydmljZVJlYWN0aW9uRGF0YSrkAQoGVGFj",
-            "dGljEhEKDUluaXRpYWxBY2Nlc3MQABINCglFeGVjdXRpb24QARIPCgtQZXJz",
-            "aXN0ZW5jZRACEhcKE1ByaXZpbGVnZUVzY2FsYXRpb24QAxISCg5EZWZlbnNl",
-            "RXZhc2lvbhAEEhQKEENyZWRlbnRpYWxBY2Nlc3MQBRINCglEaXNjb3ZlcnkQ",
-            "BhITCg9MYXRlcmFsTW92ZW1lbnQQBxIOCgpDb2xsZWN0aW9uEAgSEgoOQ29t",
-            "bWFuZENvbnRyb2wQCRIQCgxFeGZpbHRyYXRpb24QChIKCgZJbXBhY3QQDCql",
-            "AQoKRGF0YVNvdXJjZRIRCg1TZXJ2aWNlU291cmNlEAASEQoNUHJvY2Vzc1Nv",
-            "dXJjZRABEhAKDERyaXZlclNvdXJjZRACEhQKEEZpbGVTeXN0ZW1Tb3VyY2UQ",
-            "AxISCg5SZWdpc3RyeVNvdXJjZRAEEg0KCUdQT1NvdXJjZRAFEhMKD0V2ZW50",
-            "TG9nc1NvdXJjZRAGEhEKDU5ldHdvcmtTb3VyY2UQBypFCghDYXRlZ29yeRIS",
-            "Cg5Db25maWd1cmF0aW9ucxAAEg0KCVByb2Nlc3NlcxABEgkKBUZpbGVzEAIS",
-            "CwoHTmV0d29yaxADKkgKDkFnZ3Jlc3NpdmVuZXNzEgsKB0N1cnNvcnkQABIM",
-            "CghNb2RlcmF0ZRABEgsKB0NhcmVmdWwQAhIOCgpBZ2dyZXNzaXZlEANiBnBy",
-            "b3RvMw=="));
+            "YW1wGAMgASgNIvUBChRSZWdpc3RyeVJlYWN0aW9uRGF0YRIPCgdtaXRyZUlE",
+            "GAEgASgNEgwKBHBhdGgYAiABKAkSDQoFdmFsdWUYAyABKAkSEAoIY29udGVu",
+            "dHMYBCABKAwSLwoEdHlwZRgFIAEoDjIhLmdwYi5SZWdpc3RyeVJlYWN0aW9u",
+            "RGF0YS5SZWdUeXBlEhoKA0FDTBgGIAMoCzINLmdwYi5BQ0xFbnRyeSJQCgdS",
+            "ZWdUeXBlEgYKAlNaEAASDAoITVVMVElfU1oQARINCglFWFBBTkRfU1oQAhIK",
+            "CgZCSU5BUlkQAxIJCgVEV09SRBAEEgkKBVFXT1JEEAUipQQKE1Byb2Nlc3NS",
+            "ZWFjdGlvbkRhdGESDwoHbWl0cmVJRBgBIAEoDRILCgNwaWQYAiABKA0SDAoE",
+            "bmFtZRgDIAEoCRITCgtkZXNjcmlwdGlvbhgEIAEoCRITCgtjb21tYW5kTGlu",
+            "ZRgFIAEoCRIMCgRwYXRoGAYgASgJEhgKEGN1cnJlbnREaXJlY3RvcnkYByAB",
+            "KAkSGQoRYXV0b3N0YXJ0TG9jYXRpb24YCCABKAkSDgoGcGFyZW50GAkgASgJ",
+            "EgwKBHVzZXIYCiABKAkSEwoLdGltZVN0YXJ0ZWQYCyABKA0SFQoNcmVjaWV2",
+            "ZWRCeXRlcxgMIAEoDRIRCglzZW50Qnl0ZXMYDSABKA0SFAoMcHJpdmF0ZUJ5",
+            "dGVzGA4gASgNEhIKCndvcmtpbmdTZXQYDyABKA0SFgoOYmluYXJ5Q29udGVu",
+            "dHMYECABKAwSCwoDdGlkGBEgASgNEhcKD2FsbG9jYXRpb25TdGFydBgSIAEo",
+            "DRJICg9kZXRlY3Rpb25NZXRob2QYEyABKA4yLy5ncGIuUHJvY2Vzc1JlYWN0",
+            "aW9uRGF0YS5Qcm9jZXNzRGV0ZWN0aW9uTWV0aG9kImYKFlByb2Nlc3NEZXRl",
+            "Y3Rpb25NZXRob2QSEgoOTm90SW1hZ2VCYWNrZWQQABIYChRCYWNraW5nSW1h",
+            "Z2VNaXNtYXRjaBABEg8KC05vdEluTG9hZGVyEAISDQoJTm90U2lnbmVkEAMi",
+            "iwIKE1NlcnZpY2VSZWFjdGlvbkRhdGESDwoHbWl0cmVJRBgBIAEoDRILCgNw",
+            "aWQYAiABKA0SDAoEbmFtZRgDIAEoCRITCgtkZXNjcmlwdGlvbhgEIAEoCRIP",
+            "Cgdsb2dPbkFzGAUgASgJEhMKC3N0YXJ0dXBUeXBlGAYgASgJEhcKD3N0YXJ0",
+            "UGFyYW1ldGVycxgHIAEoCRIcChRhbGxvd0Rlc2t0b3BJbnRlcmFjdBgIIAEo",
+            "CBIWCg5ydW5Qcm9ncmFtUGF0aBgJIAEoCRISCgpiaW5hcnlQYXRoGAogASgJ",
+            "EhYKDmJpbmFyeUNvbnRlbnRzGAsgASgMEhIKCnNlcnZpY2VETEwYDCABKAwi",
+            "1wEKCEh1bnRJbmZvEhAKCGh1bnROYW1lGAEgASgJEi8KEmh1bnRBZ2dyZXNz",
+            "aXZlbmVzcxgCIAEoDjITLmdwYi5BZ2dyZXNzaXZlbmVzcxIgCgtodW50VGFj",
+            "dGljcxgDIAMoDjILLmdwYi5UYWN0aWMSJQoOaHVudENhdGVnb3JpZXMYBCAD",
+            "KA4yDS5ncGIuQ2F0ZWdvcnkSKAoPaHVudERhdGFzb3VyY2VzGAUgAygOMg8u",
+            "Z3BiLkRhdGFTb3VyY2USFQoNaHVudFN0YXJ0VGltZRgGIAEoDSKQAgoLSHVu",
+            "dE1lc3NhZ2USGwoEaW5mbxgBIAEoCzINLmdwYi5IdW50SW5mbxIUCgxleHRy",
+            "YU1lc3NhZ2UYAyABKAkSLQoOZmlsZURldGVjdGlvbnMYBCADKAsyFS5ncGIu",
+            "RmlsZVJlYWN0aW9uRGF0YRI1ChJyZWdpc3RyeURldGVjdGlvbnMYBSADKAsy",
+            "GS5ncGIuUmVnaXN0cnlSZWFjdGlvbkRhdGESMwoRcHJvY2Vzc0RldGVjdGlv",
+            "bnMYBiADKAsyGC5ncGIuUHJvY2Vzc1JlYWN0aW9uRGF0YRIzChFzZXJ2aWNl",
+            "RGV0ZWN0aW9ucxgHIAMoCzIYLmdwYi5TZXJ2aWNlUmVhY3Rpb25EYXRhKuQB",
+            "CgZUYWN0aWMSEQoNSW5pdGlhbEFjY2VzcxAAEg0KCUV4ZWN1dGlvbhABEg8K",
+            "C1BlcnNpc3RlbmNlEAISFwoTUHJpdmlsZWdlRXNjYWxhdGlvbhADEhIKDkRl",
+            "ZmVuc2VFdmFzaW9uEAQSFAoQQ3JlZGVudGlhbEFjY2VzcxAFEg0KCURpc2Nv",
+            "dmVyeRAGEhMKD0xhdGVyYWxNb3ZlbWVudBAHEg4KCkNvbGxlY3Rpb24QCBIS",
+            "Cg5Db21tYW5kQ29udHJvbBAJEhAKDEV4ZmlsdHJhdGlvbhAKEgoKBkltcGFj",
+            "dBAMKqUBCgpEYXRhU291cmNlEhEKDVNlcnZpY2VTb3VyY2UQABIRCg1Qcm9j",
+            "ZXNzU291cmNlEAESEAoMRHJpdmVyU291cmNlEAISFAoQRmlsZVN5c3RlbVNv",
+            "dXJjZRADEhIKDlJlZ2lzdHJ5U291cmNlEAQSDQoJR1BPU291cmNlEAUSEwoP",
+            "RXZlbnRMb2dzU291cmNlEAYSEQoNTmV0d29ya1NvdXJjZRAHKkUKCENhdGVn",
+            "b3J5EhIKDkNvbmZpZ3VyYXRpb25zEAASDQoJUHJvY2Vzc2VzEAESCQoFRmls",
+            "ZXMQAhILCgdOZXR3b3JrEAMqSAoOQWdncmVzc2l2ZW5lc3MSCwoHQ3Vyc29y",
+            "eRAAEgwKCE1vZGVyYXRlEAESCwoHQ2FyZWZ1bBACEg4KCkFnZ3Jlc3NpdmUQ",
+            "A2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Gpb.Tactic), typeof(global::Gpb.DataSource), typeof(global::Gpb.Category), typeof(global::Gpb.Aggressiveness), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.ACLEntry), global::Gpb.ACLEntry.Parser, new[]{ "User", "Group", "SecurityAttributes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.FileReactionData), global::Gpb.FileReactionData.Parser, new[]{ "MitreID", "FileName", "Description", "Owner", "Size", "TimeCreated", "TimeModified", "TimeAccessed", "FileContents", "Signatures", "ACL", "Hash" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.FileReactionData.Types.Signature), global::Gpb.FileReactionData.Types.Signature.Parser, new[]{ "SignerName", "DigestAlgorithm", "Timestamp" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.RegistryReactionData), global::Gpb.RegistryReactionData.Parser, new[]{ "MitreID", "Key", "Data", "Value", "Type", "ACL" }, null, new[]{ typeof(global::Gpb.RegistryReactionData.Types.RegType) }, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.RegistryReactionData), global::Gpb.RegistryReactionData.Parser, new[]{ "MitreID", "Path", "Value", "Contents", "Type", "ACL" }, null, new[]{ typeof(global::Gpb.RegistryReactionData.Types.RegType) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.ProcessReactionData), global::Gpb.ProcessReactionData.Parser, new[]{ "MitreID", "Pid", "Name", "Description", "CommandLine", "Path", "CurrentDirectory", "AutostartLocation", "Parent", "User", "TimeStarted", "RecievedBytes", "SentBytes", "PrivateBytes", "WorkingSet", "BinaryContents", "Tid", "AllocationStart", "DetectionMethod" }, null, new[]{ typeof(global::Gpb.ProcessReactionData.Types.ProcessDetectionMethod) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.ServiceReactionData), global::Gpb.ServiceReactionData.Parser, new[]{ "MitreID", "Pid", "Name", "Description", "LogOnAs", "StartupType", "StartParameters", "AllowDesktopInteract", "RunProgramPath", "BinaryPath", "BinaryContents", "ServiceDLL" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gpb.HuntInfo), global::Gpb.HuntInfo.Parser, new[]{ "HuntName", "HuntAggressiveness", "HuntTactics", "HuntCategories", "HuntDatasources", "HuntStartTime" }, null, null, null),
@@ -965,9 +965,9 @@ namespace Gpb {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public RegistryReactionData(RegistryReactionData other) : this() {
       mitreID_ = other.mitreID_;
-      key_ = other.key_;
-      data_ = other.data_;
+      path_ = other.path_;
       value_ = other.value_;
+      contents_ = other.contents_;
       type_ = other.type_;
       aCL_ = other.aCL_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -989,36 +989,36 @@ namespace Gpb {
       }
     }
 
-    /// <summary>Field number for the "key" field.</summary>
-    public const int KeyFieldNumber = 2;
-    private string key_ = "";
+    /// <summary>Field number for the "path" field.</summary>
+    public const int PathFieldNumber = 2;
+    private string path_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Key {
-      get { return key_; }
+    public string Path {
+      get { return path_; }
       set {
-        key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 3;
-    private pb::ByteString data_ = pb::ByteString.Empty;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Data {
-      get { return data_; }
-      set {
-        data_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        path_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "value" field.</summary>
-    public const int ValueFieldNumber = 4;
-    private pb::ByteString value_ = pb::ByteString.Empty;
+    public const int ValueFieldNumber = 3;
+    private string value_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Value {
+    public string Value {
       get { return value_; }
       set {
         value_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "contents" field.</summary>
+    public const int ContentsFieldNumber = 4;
+    private pb::ByteString contents_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Contents {
+      get { return contents_; }
+      set {
+        contents_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1057,9 +1057,9 @@ namespace Gpb {
         return true;
       }
       if (MitreID != other.MitreID) return false;
-      if (Key != other.Key) return false;
-      if (Data != other.Data) return false;
+      if (Path != other.Path) return false;
       if (Value != other.Value) return false;
+      if (Contents != other.Contents) return false;
       if (Type != other.Type) return false;
       if(!aCL_.Equals(other.aCL_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1069,9 +1069,9 @@ namespace Gpb {
     public override int GetHashCode() {
       int hash = 1;
       if (MitreID != 0) hash ^= MitreID.GetHashCode();
-      if (Key.Length != 0) hash ^= Key.GetHashCode();
-      if (Data.Length != 0) hash ^= Data.GetHashCode();
+      if (Path.Length != 0) hash ^= Path.GetHashCode();
       if (Value.Length != 0) hash ^= Value.GetHashCode();
+      if (Contents.Length != 0) hash ^= Contents.GetHashCode();
       if (Type != 0) hash ^= Type.GetHashCode();
       hash ^= aCL_.GetHashCode();
       if (_unknownFields != null) {
@@ -1091,17 +1091,17 @@ namespace Gpb {
         output.WriteRawTag(8);
         output.WriteUInt32(MitreID);
       }
-      if (Key.Length != 0) {
+      if (Path.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(Key);
-      }
-      if (Data.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Data);
+        output.WriteString(Path);
       }
       if (Value.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Value);
+      }
+      if (Contents.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteBytes(Value);
+        output.WriteBytes(Contents);
       }
       if (Type != 0) {
         output.WriteRawTag(40);
@@ -1119,14 +1119,14 @@ namespace Gpb {
       if (MitreID != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MitreID);
       }
-      if (Key.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
-      }
-      if (Data.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Data);
+      if (Path.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Path);
       }
       if (Value.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Value);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Value);
+      }
+      if (Contents.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Contents);
       }
       if (Type != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
@@ -1146,14 +1146,14 @@ namespace Gpb {
       if (other.MitreID != 0) {
         MitreID = other.MitreID;
       }
-      if (other.Key.Length != 0) {
-        Key = other.Key;
-      }
-      if (other.Data.Length != 0) {
-        Data = other.Data;
+      if (other.Path.Length != 0) {
+        Path = other.Path;
       }
       if (other.Value.Length != 0) {
         Value = other.Value;
+      }
+      if (other.Contents.Length != 0) {
+        Contents = other.Contents;
       }
       if (other.Type != 0) {
         Type = other.Type;
@@ -1175,15 +1175,15 @@ namespace Gpb {
             break;
           }
           case 18: {
-            Key = input.ReadString();
+            Path = input.ReadString();
             break;
           }
           case 26: {
-            Data = input.ReadBytes();
+            Value = input.ReadString();
             break;
           }
           case 34: {
-            Value = input.ReadBytes();
+            Contents = input.ReadBytes();
             break;
           }
           case 40: {

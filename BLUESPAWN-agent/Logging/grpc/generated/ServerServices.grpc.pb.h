@@ -29,10 +29,10 @@ class ServerContext;
 
 namespace gpb {
 
-class Server final {
+class BLUESPAWN final {
  public:
   static constexpr char const* service_full_name() {
-    return "gpb.Server";
+    return "gpb.BLUESPAWN";
   }
   class StubInterface {
    public:
@@ -44,16 +44,27 @@ class Server final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gpb::Empty>> PrepareAsyncSendHuntMessage(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gpb::Empty>>(PrepareAsyncSendHuntMessageRaw(context, request, cq));
     }
+    virtual ::grpc::Status Handshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::gpb::HandshakeResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gpb::HandshakeResponse>> AsyncHandshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gpb::HandshakeResponse>>(AsyncHandshakeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gpb::HandshakeResponse>> PrepareAsyncHandshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gpb::HandshakeResponse>>(PrepareAsyncHandshakeRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       virtual void SendHuntMessage(::grpc::ClientContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendHuntMessage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::gpb::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Handshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Handshake(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::gpb::HandshakeResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::gpb::Empty>* AsyncSendHuntMessageRaw(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::gpb::Empty>* PrepareAsyncSendHuntMessageRaw(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::gpb::HandshakeResponse>* AsyncHandshakeRaw(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::gpb::HandshakeResponse>* PrepareAsyncHandshakeRaw(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -65,11 +76,20 @@ class Server final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gpb::Empty>> PrepareAsyncSendHuntMessage(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gpb::Empty>>(PrepareAsyncSendHuntMessageRaw(context, request, cq));
     }
+    ::grpc::Status Handshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::gpb::HandshakeResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gpb::HandshakeResponse>> AsyncHandshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gpb::HandshakeResponse>>(AsyncHandshakeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gpb::HandshakeResponse>> PrepareAsyncHandshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gpb::HandshakeResponse>>(PrepareAsyncHandshakeRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
       void SendHuntMessage(::grpc::ClientContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response, std::function<void(::grpc::Status)>) override;
       void SendHuntMessage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::gpb::Empty* response, std::function<void(::grpc::Status)>) override;
+      void Handshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response, std::function<void(::grpc::Status)>) override;
+      void Handshake(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::gpb::HandshakeResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -83,7 +103,10 @@ class Server final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::gpb::Empty>* AsyncSendHuntMessageRaw(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::gpb::Empty>* PrepareAsyncSendHuntMessageRaw(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::gpb::HandshakeResponse>* AsyncHandshakeRaw(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::gpb::HandshakeResponse>* PrepareAsyncHandshakeRaw(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SendHuntMessage_;
+    const ::grpc::internal::RpcMethod rpcmethod_Handshake_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -92,6 +115,7 @@ class Server final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status SendHuntMessage(::grpc::ServerContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response);
+    virtual ::grpc::Status Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_SendHuntMessage : public BaseClass {
@@ -113,7 +137,27 @@ class Server final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SendHuntMessage<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_Handshake : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_Handshake() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_Handshake() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestHandshake(::grpc::ServerContext* context, ::gpb::HandshakeRequest* request, ::grpc::ServerAsyncResponseWriter< ::gpb::HandshakeResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_SendHuntMessage<WithAsyncMethod_Handshake<Service > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SendHuntMessage : public BaseClass {
    private:
@@ -139,7 +183,32 @@ class Server final {
     }
     virtual void SendHuntMessage(::grpc::ServerContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_SendHuntMessage<Service > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Handshake : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_Handshake() {
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::gpb::HandshakeRequest, ::gpb::HandshakeResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::gpb::HandshakeRequest* request,
+                 ::gpb::HandshakeResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Handshake(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_Handshake() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_SendHuntMessage<ExperimentalWithCallbackMethod_Handshake<Service > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SendHuntMessage : public BaseClass {
    private:
@@ -153,6 +222,23 @@ class Server final {
     }
     // disable synchronous version of this method
     ::grpc::Status SendHuntMessage(::grpc::ServerContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Handshake : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_Handshake() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_Handshake() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -175,6 +261,26 @@ class Server final {
     }
     void RequestSendHuntMessage(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Handshake : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_Handshake() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_Handshake() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestHandshake(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -203,6 +309,31 @@ class Server final {
     virtual void SendHuntMessage(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Handshake : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Handshake() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Handshake(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Handshake() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Handshake(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_SendHuntMessage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -222,9 +353,29 @@ class Server final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSendHuntMessage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::gpb::HuntMessage,::gpb::Empty>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_SendHuntMessage<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Handshake : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_Handshake() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::gpb::HandshakeRequest, ::gpb::HandshakeResponse>(std::bind(&WithStreamedUnaryMethod_Handshake<BaseClass>::StreamedHandshake, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_Handshake() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedHandshake(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::gpb::HandshakeRequest,::gpb::HandshakeResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_SendHuntMessage<WithStreamedUnaryMethod_Handshake<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_SendHuntMessage<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_SendHuntMessage<WithStreamedUnaryMethod_Handshake<Service > > StreamedService;
 };
 
 }  // namespace gpb

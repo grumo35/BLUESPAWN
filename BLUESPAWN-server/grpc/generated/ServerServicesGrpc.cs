@@ -8,12 +8,14 @@
 using grpc = global::Grpc.Core;
 
 namespace Gpb {
-  public static partial class Server
+  public static partial class BLUESPAWN
   {
-    static readonly string __ServiceName = "gpb.Server";
+    static readonly string __ServiceName = "gpb.BLUESPAWN";
 
     static readonly grpc::Marshaller<global::Gpb.HuntMessage> __Marshaller_gpb_HuntMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Gpb.HuntMessage.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Gpb.Empty> __Marshaller_gpb_Empty = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Gpb.Empty.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Gpb.HandshakeRequest> __Marshaller_gpb_HandshakeRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Gpb.HandshakeRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Gpb.HandshakeResponse> __Marshaller_gpb_HandshakeResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Gpb.HandshakeResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Gpb.HuntMessage, global::Gpb.Empty> __Method_SendHuntMessage = new grpc::Method<global::Gpb.HuntMessage, global::Gpb.Empty>(
         grpc::MethodType.Unary,
@@ -22,42 +24,54 @@ namespace Gpb {
         __Marshaller_gpb_HuntMessage,
         __Marshaller_gpb_Empty);
 
+    static readonly grpc::Method<global::Gpb.HandshakeRequest, global::Gpb.HandshakeResponse> __Method_Handshake = new grpc::Method<global::Gpb.HandshakeRequest, global::Gpb.HandshakeResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Handshake",
+        __Marshaller_gpb_HandshakeRequest,
+        __Marshaller_gpb_HandshakeResponse);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
       get { return global::Gpb.ServerServicesReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of Server</summary>
-    public abstract partial class ServerBase
+    /// <summary>Base class for server-side implementations of BLUESPAWN</summary>
+    public abstract partial class BLUESPAWNBase
     {
       public virtual global::System.Threading.Tasks.Task<global::Gpb.Empty> SendHuntMessage(global::Gpb.HuntMessage request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::Gpb.HandshakeResponse> Handshake(global::Gpb.HandshakeRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
-    /// <summary>Client for Server</summary>
-    public partial class ServerClient : grpc::ClientBase<ServerClient>
+    /// <summary>Client for BLUESPAWN</summary>
+    public partial class BLUESPAWNClient : grpc::ClientBase<BLUESPAWNClient>
     {
-      /// <summary>Creates a new client for Server</summary>
+      /// <summary>Creates a new client for BLUESPAWN</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public ServerClient(grpc::Channel channel) : base(channel)
+      public BLUESPAWNClient(grpc::Channel channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for Server that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for BLUESPAWN that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public ServerClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public BLUESPAWNClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected ServerClient() : base()
+      protected BLUESPAWNClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
-      protected ServerClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected BLUESPAWNClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
@@ -77,28 +91,46 @@ namespace Gpb {
       {
         return CallInvoker.AsyncUnaryCall(__Method_SendHuntMessage, null, options, request);
       }
-      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
-      protected override ServerClient NewInstance(ClientBaseConfiguration configuration)
+      public virtual global::Gpb.HandshakeResponse Handshake(global::Gpb.HandshakeRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return new ServerClient(configuration);
+        return Handshake(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Gpb.HandshakeResponse Handshake(global::Gpb.HandshakeRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Handshake, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Gpb.HandshakeResponse> HandshakeAsync(global::Gpb.HandshakeRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return HandshakeAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Gpb.HandshakeResponse> HandshakeAsync(global::Gpb.HandshakeRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Handshake, null, options, request);
+      }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      protected override BLUESPAWNClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new BLUESPAWNClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static grpc::ServerServiceDefinition BindService(ServerBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(BLUESPAWNBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SendHuntMessage, serviceImpl.SendHuntMessage).Build();
+          .AddMethod(__Method_SendHuntMessage, serviceImpl.SendHuntMessage)
+          .AddMethod(__Method_Handshake, serviceImpl.Handshake).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
     /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, ServerBase serviceImpl)
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, BLUESPAWNBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SendHuntMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Gpb.HuntMessage, global::Gpb.Empty>(serviceImpl.SendHuntMessage));
+      serviceBinder.AddMethod(__Method_Handshake, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Gpb.HandshakeRequest, global::Gpb.HandshakeResponse>(serviceImpl.Handshake));
     }
 
   }

@@ -911,47 +911,47 @@ class RegistryReactionData final :
   const ::google::protobuf::RepeatedPtrField< ::gpb::ACLEntry >&
       acl() const;
 
-  // string key = 2;
-  void clear_key();
-  static const int kKeyFieldNumber = 2;
-  const ::std::string& key() const;
-  void set_key(const ::std::string& value);
+  // string path = 2;
+  void clear_path();
+  static const int kPathFieldNumber = 2;
+  const ::std::string& path() const;
+  void set_path(const ::std::string& value);
   #if LANG_CXX11
-  void set_key(::std::string&& value);
+  void set_path(::std::string&& value);
   #endif
-  void set_key(const char* value);
-  void set_key(const char* value, size_t size);
-  ::std::string* mutable_key();
-  ::std::string* release_key();
-  void set_allocated_key(::std::string* key);
+  void set_path(const char* value);
+  void set_path(const char* value, size_t size);
+  ::std::string* mutable_path();
+  ::std::string* release_path();
+  void set_allocated_path(::std::string* path);
 
-  // bytes data = 3;
-  void clear_data();
-  static const int kDataFieldNumber = 3;
-  const ::std::string& data() const;
-  void set_data(const ::std::string& value);
-  #if LANG_CXX11
-  void set_data(::std::string&& value);
-  #endif
-  void set_data(const char* value);
-  void set_data(const void* value, size_t size);
-  ::std::string* mutable_data();
-  ::std::string* release_data();
-  void set_allocated_data(::std::string* data);
-
-  // bytes value = 4;
+  // string value = 3;
   void clear_value();
-  static const int kValueFieldNumber = 4;
+  static const int kValueFieldNumber = 3;
   const ::std::string& value() const;
   void set_value(const ::std::string& value);
   #if LANG_CXX11
   void set_value(::std::string&& value);
   #endif
   void set_value(const char* value);
-  void set_value(const void* value, size_t size);
+  void set_value(const char* value, size_t size);
   ::std::string* mutable_value();
   ::std::string* release_value();
   void set_allocated_value(::std::string* value);
+
+  // bytes contents = 4;
+  void clear_contents();
+  static const int kContentsFieldNumber = 4;
+  const ::std::string& contents() const;
+  void set_contents(const ::std::string& value);
+  #if LANG_CXX11
+  void set_contents(::std::string&& value);
+  #endif
+  void set_contents(const char* value);
+  void set_contents(const void* value, size_t size);
+  ::std::string* mutable_contents();
+  ::std::string* release_contents();
+  void set_allocated_contents(::std::string* contents);
 
   // uint32 mitreID = 1;
   void clear_mitreid();
@@ -971,9 +971,9 @@ class RegistryReactionData final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::gpb::ACLEntry > acl_;
-  ::google::protobuf::internal::ArenaStringPtr key_;
-  ::google::protobuf::internal::ArenaStringPtr data_;
+  ::google::protobuf::internal::ArenaStringPtr path_;
   ::google::protobuf::internal::ArenaStringPtr value_;
+  ::google::protobuf::internal::ArenaStringPtr contents_;
   ::google::protobuf::uint32 mitreid_;
   int type_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -2604,113 +2604,60 @@ inline void RegistryReactionData::set_mitreid(::google::protobuf::uint32 value) 
   // @@protoc_insertion_point(field_set:gpb.RegistryReactionData.mitreID)
 }
 
-// string key = 2;
-inline void RegistryReactionData::clear_key() {
-  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string path = 2;
+inline void RegistryReactionData::clear_path() {
+  path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& RegistryReactionData::key() const {
-  // @@protoc_insertion_point(field_get:gpb.RegistryReactionData.key)
-  return key_.GetNoArena();
+inline const ::std::string& RegistryReactionData::path() const {
+  // @@protoc_insertion_point(field_get:gpb.RegistryReactionData.path)
+  return path_.GetNoArena();
 }
-inline void RegistryReactionData::set_key(const ::std::string& value) {
+inline void RegistryReactionData::set_path(const ::std::string& value) {
   
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:gpb.RegistryReactionData.key)
+  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:gpb.RegistryReactionData.path)
 }
 #if LANG_CXX11
-inline void RegistryReactionData::set_key(::std::string&& value) {
+inline void RegistryReactionData::set_path(::std::string&& value) {
   
-  key_.SetNoArena(
+  path_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:gpb.RegistryReactionData.key)
+  // @@protoc_insertion_point(field_set_rvalue:gpb.RegistryReactionData.path)
 }
 #endif
-inline void RegistryReactionData::set_key(const char* value) {
+inline void RegistryReactionData::set_path(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:gpb.RegistryReactionData.key)
+  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:gpb.RegistryReactionData.path)
 }
-inline void RegistryReactionData::set_key(const char* value, size_t size) {
+inline void RegistryReactionData::set_path(const char* value, size_t size) {
   
-  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:gpb.RegistryReactionData.key)
+  // @@protoc_insertion_point(field_set_pointer:gpb.RegistryReactionData.path)
 }
-inline ::std::string* RegistryReactionData::mutable_key() {
+inline ::std::string* RegistryReactionData::mutable_path() {
   
-  // @@protoc_insertion_point(field_mutable:gpb.RegistryReactionData.key)
-  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:gpb.RegistryReactionData.path)
+  return path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* RegistryReactionData::release_key() {
-  // @@protoc_insertion_point(field_release:gpb.RegistryReactionData.key)
+inline ::std::string* RegistryReactionData::release_path() {
+  // @@protoc_insertion_point(field_release:gpb.RegistryReactionData.path)
   
-  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void RegistryReactionData::set_allocated_key(::std::string* key) {
-  if (key != nullptr) {
+inline void RegistryReactionData::set_allocated_path(::std::string* path) {
+  if (path != nullptr) {
     
   } else {
     
   }
-  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:gpb.RegistryReactionData.key)
+  path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), path);
+  // @@protoc_insertion_point(field_set_allocated:gpb.RegistryReactionData.path)
 }
 
-// bytes data = 3;
-inline void RegistryReactionData::clear_data() {
-  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& RegistryReactionData::data() const {
-  // @@protoc_insertion_point(field_get:gpb.RegistryReactionData.data)
-  return data_.GetNoArena();
-}
-inline void RegistryReactionData::set_data(const ::std::string& value) {
-  
-  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:gpb.RegistryReactionData.data)
-}
-#if LANG_CXX11
-inline void RegistryReactionData::set_data(::std::string&& value) {
-  
-  data_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:gpb.RegistryReactionData.data)
-}
-#endif
-inline void RegistryReactionData::set_data(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:gpb.RegistryReactionData.data)
-}
-inline void RegistryReactionData::set_data(const void* value, size_t size) {
-  
-  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:gpb.RegistryReactionData.data)
-}
-inline ::std::string* RegistryReactionData::mutable_data() {
-  
-  // @@protoc_insertion_point(field_mutable:gpb.RegistryReactionData.data)
-  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* RegistryReactionData::release_data() {
-  // @@protoc_insertion_point(field_release:gpb.RegistryReactionData.data)
-  
-  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void RegistryReactionData::set_allocated_data(::std::string* data) {
-  if (data != nullptr) {
-    
-  } else {
-    
-  }
-  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
-  // @@protoc_insertion_point(field_set_allocated:gpb.RegistryReactionData.data)
-}
-
-// bytes value = 4;
+// string value = 3;
 inline void RegistryReactionData::clear_value() {
   value_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2737,7 +2684,7 @@ inline void RegistryReactionData::set_value(const char* value) {
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:gpb.RegistryReactionData.value)
 }
-inline void RegistryReactionData::set_value(const void* value, size_t size) {
+inline void RegistryReactionData::set_value(const char* value, size_t size) {
   
   value_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -2761,6 +2708,59 @@ inline void RegistryReactionData::set_allocated_value(::std::string* value) {
   }
   value_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set_allocated:gpb.RegistryReactionData.value)
+}
+
+// bytes contents = 4;
+inline void RegistryReactionData::clear_contents() {
+  contents_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RegistryReactionData::contents() const {
+  // @@protoc_insertion_point(field_get:gpb.RegistryReactionData.contents)
+  return contents_.GetNoArena();
+}
+inline void RegistryReactionData::set_contents(const ::std::string& value) {
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:gpb.RegistryReactionData.contents)
+}
+#if LANG_CXX11
+inline void RegistryReactionData::set_contents(::std::string&& value) {
+  
+  contents_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:gpb.RegistryReactionData.contents)
+}
+#endif
+inline void RegistryReactionData::set_contents(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:gpb.RegistryReactionData.contents)
+}
+inline void RegistryReactionData::set_contents(const void* value, size_t size) {
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:gpb.RegistryReactionData.contents)
+}
+inline ::std::string* RegistryReactionData::mutable_contents() {
+  
+  // @@protoc_insertion_point(field_mutable:gpb.RegistryReactionData.contents)
+  return contents_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RegistryReactionData::release_contents() {
+  // @@protoc_insertion_point(field_release:gpb.RegistryReactionData.contents)
+  
+  return contents_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RegistryReactionData::set_allocated_contents(::std::string* contents) {
+  if (contents != nullptr) {
+    
+  } else {
+    
+  }
+  contents_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), contents);
+  // @@protoc_insertion_point(field_set_allocated:gpb.RegistryReactionData.contents)
 }
 
 // .gpb.RegistryReactionData.RegType type = 5;

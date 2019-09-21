@@ -18,52 +18,86 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace gpb {
 
-static const char* Server_method_names[] = {
-  "/gpb.Server/SendHuntMessage",
+static const char* BLUESPAWN_method_names[] = {
+  "/gpb.BLUESPAWN/SendHuntMessage",
+  "/gpb.BLUESPAWN/Handshake",
 };
 
-std::unique_ptr< Server::Stub> Server::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< BLUESPAWN::Stub> BLUESPAWN::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< Server::Stub> stub(new Server::Stub(channel));
+  std::unique_ptr< BLUESPAWN::Stub> stub(new BLUESPAWN::Stub(channel));
   return stub;
 }
 
-Server::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_SendHuntMessage_(Server_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+BLUESPAWN::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_SendHuntMessage_(BLUESPAWN_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Handshake_(BLUESPAWN_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Server::Stub::SendHuntMessage(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::gpb::Empty* response) {
+::grpc::Status BLUESPAWN::Stub::SendHuntMessage(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::gpb::Empty* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SendHuntMessage_, context, request, response);
 }
 
-void Server::Stub::experimental_async::SendHuntMessage(::grpc::ClientContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response, std::function<void(::grpc::Status)> f) {
+void BLUESPAWN::Stub::experimental_async::SendHuntMessage(::grpc::ClientContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendHuntMessage_, context, request, response, std::move(f));
 }
 
-void Server::Stub::experimental_async::SendHuntMessage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::gpb::Empty* response, std::function<void(::grpc::Status)> f) {
+void BLUESPAWN::Stub::experimental_async::SendHuntMessage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::gpb::Empty* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendHuntMessage_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::gpb::Empty>* Server::Stub::AsyncSendHuntMessageRaw(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::gpb::Empty>* BLUESPAWN::Stub::AsyncSendHuntMessageRaw(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::gpb::Empty>::Create(channel_.get(), cq, rpcmethod_SendHuntMessage_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::gpb::Empty>* Server::Stub::PrepareAsyncSendHuntMessageRaw(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::gpb::Empty>* BLUESPAWN::Stub::PrepareAsyncSendHuntMessageRaw(::grpc::ClientContext* context, const ::gpb::HuntMessage& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::gpb::Empty>::Create(channel_.get(), cq, rpcmethod_SendHuntMessage_, context, request, false);
 }
 
-Server::Service::Service() {
+::grpc::Status BLUESPAWN::Stub::Handshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::gpb::HandshakeResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Handshake_, context, request, response);
+}
+
+void BLUESPAWN::Stub::experimental_async::Handshake(::grpc::ClientContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Handshake_, context, request, response, std::move(f));
+}
+
+void BLUESPAWN::Stub::experimental_async::Handshake(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::gpb::HandshakeResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Handshake_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::gpb::HandshakeResponse>* BLUESPAWN::Stub::AsyncHandshakeRaw(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::gpb::HandshakeResponse>::Create(channel_.get(), cq, rpcmethod_Handshake_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::gpb::HandshakeResponse>* BLUESPAWN::Stub::PrepareAsyncHandshakeRaw(::grpc::ClientContext* context, const ::gpb::HandshakeRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::gpb::HandshakeResponse>::Create(channel_.get(), cq, rpcmethod_Handshake_, context, request, false);
+}
+
+BLUESPAWN::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Server_method_names[0],
+      BLUESPAWN_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Server::Service, ::gpb::HuntMessage, ::gpb::Empty>(
-          std::mem_fn(&Server::Service::SendHuntMessage), this)));
+      new ::grpc::internal::RpcMethodHandler< BLUESPAWN::Service, ::gpb::HuntMessage, ::gpb::Empty>(
+          std::mem_fn(&BLUESPAWN::Service::SendHuntMessage), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      BLUESPAWN_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< BLUESPAWN::Service, ::gpb::HandshakeRequest, ::gpb::HandshakeResponse>(
+          std::mem_fn(&BLUESPAWN::Service::Handshake), this)));
 }
 
-Server::Service::~Service() {
+BLUESPAWN::Service::~Service() {
 }
 
-::grpc::Status Server::Service::SendHuntMessage(::grpc::ServerContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response) {
+::grpc::Status BLUESPAWN::Service::SendHuntMessage(::grpc::ServerContext* context, const ::gpb::HuntMessage* request, ::gpb::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status BLUESPAWN::Service::Handshake(::grpc::ServerContext* context, const ::gpb::HandshakeRequest* request, ::gpb::HandshakeResponse* response) {
   (void) context;
   (void) request;
   (void) response;

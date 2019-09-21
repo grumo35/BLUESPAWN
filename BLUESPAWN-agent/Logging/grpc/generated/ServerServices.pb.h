@@ -42,7 +42,7 @@ struct TableStruct_ServerServices_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[1]
+  static const ::google::protobuf::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -53,10 +53,18 @@ namespace gpb {
 class Empty;
 class EmptyDefaultTypeInternal;
 extern EmptyDefaultTypeInternal _Empty_default_instance_;
+class HandshakeRequest;
+class HandshakeRequestDefaultTypeInternal;
+extern HandshakeRequestDefaultTypeInternal _HandshakeRequest_default_instance_;
+class HandshakeResponse;
+class HandshakeResponseDefaultTypeInternal;
+extern HandshakeResponseDefaultTypeInternal _HandshakeResponse_default_instance_;
 }  // namespace gpb
 namespace google {
 namespace protobuf {
 template<> ::gpb::Empty* Arena::CreateMaybeMessage<::gpb::Empty>(Arena*);
+template<> ::gpb::HandshakeRequest* Arena::CreateMaybeMessage<::gpb::HandshakeRequest>(Arena*);
+template<> ::gpb::HandshakeResponse* Arena::CreateMaybeMessage<::gpb::HandshakeResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace gpb {
@@ -166,6 +174,246 @@ class Empty final :
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ServerServices_2eproto;
 };
+// -------------------------------------------------------------------
+
+class HandshakeRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:gpb.HandshakeRequest) */ {
+ public:
+  HandshakeRequest();
+  virtual ~HandshakeRequest();
+
+  HandshakeRequest(const HandshakeRequest& from);
+
+  inline HandshakeRequest& operator=(const HandshakeRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  HandshakeRequest(HandshakeRequest&& from) noexcept
+    : HandshakeRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline HandshakeRequest& operator=(HandshakeRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const HandshakeRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const HandshakeRequest* internal_default_instance() {
+    return reinterpret_cast<const HandshakeRequest*>(
+               &_HandshakeRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(HandshakeRequest* other);
+  friend void swap(HandshakeRequest& a, HandshakeRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline HandshakeRequest* New() const final {
+    return CreateMaybeMessage<HandshakeRequest>(nullptr);
+  }
+
+  HandshakeRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HandshakeRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const HandshakeRequest& from);
+  void MergeFrom(const HandshakeRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(HandshakeRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string contents = 1;
+  void clear_contents();
+  static const int kContentsFieldNumber = 1;
+  const ::std::string& contents() const;
+  void set_contents(const ::std::string& value);
+  #if LANG_CXX11
+  void set_contents(::std::string&& value);
+  #endif
+  void set_contents(const char* value);
+  void set_contents(const char* value, size_t size);
+  ::std::string* mutable_contents();
+  ::std::string* release_contents();
+  void set_allocated_contents(::std::string* contents);
+
+  // @@protoc_insertion_point(class_scope:gpb.HandshakeRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr contents_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ServerServices_2eproto;
+};
+// -------------------------------------------------------------------
+
+class HandshakeResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:gpb.HandshakeResponse) */ {
+ public:
+  HandshakeResponse();
+  virtual ~HandshakeResponse();
+
+  HandshakeResponse(const HandshakeResponse& from);
+
+  inline HandshakeResponse& operator=(const HandshakeResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  HandshakeResponse(HandshakeResponse&& from) noexcept
+    : HandshakeResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline HandshakeResponse& operator=(HandshakeResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const HandshakeResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const HandshakeResponse* internal_default_instance() {
+    return reinterpret_cast<const HandshakeResponse*>(
+               &_HandshakeResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  void Swap(HandshakeResponse* other);
+  friend void swap(HandshakeResponse& a, HandshakeResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline HandshakeResponse* New() const final {
+    return CreateMaybeMessage<HandshakeResponse>(nullptr);
+  }
+
+  HandshakeResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HandshakeResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const HandshakeResponse& from);
+  void MergeFrom(const HandshakeResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(HandshakeResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string contents = 1;
+  void clear_contents();
+  static const int kContentsFieldNumber = 1;
+  const ::std::string& contents() const;
+  void set_contents(const ::std::string& value);
+  #if LANG_CXX11
+  void set_contents(::std::string&& value);
+  #endif
+  void set_contents(const char* value);
+  void set_contents(const char* value, size_t size);
+  ::std::string* mutable_contents();
+  ::std::string* release_contents();
+  void set_allocated_contents(::std::string* contents);
+
+  // @@protoc_insertion_point(class_scope:gpb.HandshakeResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr contents_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ServerServices_2eproto;
+};
 // ===================================================================
 
 
@@ -177,9 +425,127 @@ class Empty final :
 #endif  // __GNUC__
 // Empty
 
+// -------------------------------------------------------------------
+
+// HandshakeRequest
+
+// string contents = 1;
+inline void HandshakeRequest::clear_contents() {
+  contents_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& HandshakeRequest::contents() const {
+  // @@protoc_insertion_point(field_get:gpb.HandshakeRequest.contents)
+  return contents_.GetNoArena();
+}
+inline void HandshakeRequest::set_contents(const ::std::string& value) {
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:gpb.HandshakeRequest.contents)
+}
+#if LANG_CXX11
+inline void HandshakeRequest::set_contents(::std::string&& value) {
+  
+  contents_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:gpb.HandshakeRequest.contents)
+}
+#endif
+inline void HandshakeRequest::set_contents(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:gpb.HandshakeRequest.contents)
+}
+inline void HandshakeRequest::set_contents(const char* value, size_t size) {
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:gpb.HandshakeRequest.contents)
+}
+inline ::std::string* HandshakeRequest::mutable_contents() {
+  
+  // @@protoc_insertion_point(field_mutable:gpb.HandshakeRequest.contents)
+  return contents_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* HandshakeRequest::release_contents() {
+  // @@protoc_insertion_point(field_release:gpb.HandshakeRequest.contents)
+  
+  return contents_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void HandshakeRequest::set_allocated_contents(::std::string* contents) {
+  if (contents != nullptr) {
+    
+  } else {
+    
+  }
+  contents_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), contents);
+  // @@protoc_insertion_point(field_set_allocated:gpb.HandshakeRequest.contents)
+}
+
+// -------------------------------------------------------------------
+
+// HandshakeResponse
+
+// string contents = 1;
+inline void HandshakeResponse::clear_contents() {
+  contents_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& HandshakeResponse::contents() const {
+  // @@protoc_insertion_point(field_get:gpb.HandshakeResponse.contents)
+  return contents_.GetNoArena();
+}
+inline void HandshakeResponse::set_contents(const ::std::string& value) {
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:gpb.HandshakeResponse.contents)
+}
+#if LANG_CXX11
+inline void HandshakeResponse::set_contents(::std::string&& value) {
+  
+  contents_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:gpb.HandshakeResponse.contents)
+}
+#endif
+inline void HandshakeResponse::set_contents(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:gpb.HandshakeResponse.contents)
+}
+inline void HandshakeResponse::set_contents(const char* value, size_t size) {
+  
+  contents_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:gpb.HandshakeResponse.contents)
+}
+inline ::std::string* HandshakeResponse::mutable_contents() {
+  
+  // @@protoc_insertion_point(field_mutable:gpb.HandshakeResponse.contents)
+  return contents_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* HandshakeResponse::release_contents() {
+  // @@protoc_insertion_point(field_release:gpb.HandshakeResponse.contents)
+  
+  return contents_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void HandshakeResponse::set_allocated_contents(::std::string* contents) {
+  if (contents != nullptr) {
+    
+  } else {
+    
+  }
+  contents_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), contents);
+  // @@protoc_insertion_point(field_set_allocated:gpb.HandshakeResponse.contents)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 

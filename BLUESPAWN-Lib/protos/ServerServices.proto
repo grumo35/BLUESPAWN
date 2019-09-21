@@ -1,6 +1,6 @@
 syntax = "proto3";
 package gpb;
-import "protos/ReactionData.proto";
+import "ReactionData.proto";
 
 message Empty {}
 
