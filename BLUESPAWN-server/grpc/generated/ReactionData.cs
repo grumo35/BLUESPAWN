@@ -48,7 +48,7 @@ namespace Gpb {
             "ZWRCeXRlcxgMIAEoDRIRCglzZW50Qnl0ZXMYDSABKA0SFAoMcHJpdmF0ZUJ5",
             "dGVzGA4gASgNEhIKCndvcmtpbmdTZXQYDyABKA0SFgoOYmluYXJ5Q29udGVu",
             "dHMYECABKAwSCwoDdGlkGBEgASgNEhcKD2FsbG9jYXRpb25TdGFydBgSIAEo",
-            "DRJICg9kZXRlY3Rpb25NZXRob2QYEyABKA4yLy5ncGIuUHJvY2Vzc1JlYWN0",
+            "DBJICg9kZXRlY3Rpb25NZXRob2QYEyABKA4yLy5ncGIuUHJvY2Vzc1JlYWN0",
             "aW9uRGF0YS5Qcm9jZXNzRGV0ZWN0aW9uTWV0aG9kImYKFlByb2Nlc3NEZXRl",
             "Y3Rpb25NZXRob2QSEgoOTm90SW1hZ2VCYWNrZWQQABIYChRCYWNraW5nSW1h",
             "Z2VNaXNtYXRjaBABEg8KC05vdEluTG9hZGVyEAISDQoJTm90U2lnbmVkEAMi",
@@ -1457,12 +1457,12 @@ namespace Gpb {
 
     /// <summary>Field number for the "allocationStart" field.</summary>
     public const int AllocationStartFieldNumber = 18;
-    private uint allocationStart_;
+    private pb::ByteString allocationStart_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint AllocationStart {
+    public pb::ByteString AllocationStart {
       get { return allocationStart_; }
       set {
-        allocationStart_ = value;
+        allocationStart_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1532,7 +1532,7 @@ namespace Gpb {
       if (WorkingSet != 0) hash ^= WorkingSet.GetHashCode();
       if (BinaryContents.Length != 0) hash ^= BinaryContents.GetHashCode();
       if (Tid != 0) hash ^= Tid.GetHashCode();
-      if (AllocationStart != 0) hash ^= AllocationStart.GetHashCode();
+      if (AllocationStart.Length != 0) hash ^= AllocationStart.GetHashCode();
       if (DetectionMethod != 0) hash ^= DetectionMethod.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1615,9 +1615,9 @@ namespace Gpb {
         output.WriteRawTag(136, 1);
         output.WriteUInt32(Tid);
       }
-      if (AllocationStart != 0) {
-        output.WriteRawTag(144, 1);
-        output.WriteUInt32(AllocationStart);
+      if (AllocationStart.Length != 0) {
+        output.WriteRawTag(146, 1);
+        output.WriteBytes(AllocationStart);
       }
       if (DetectionMethod != 0) {
         output.WriteRawTag(152, 1);
@@ -1682,8 +1682,8 @@ namespace Gpb {
       if (Tid != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Tid);
       }
-      if (AllocationStart != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(AllocationStart);
+      if (AllocationStart.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeBytesSize(AllocationStart);
       }
       if (DetectionMethod != 0) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) DetectionMethod);
@@ -1750,7 +1750,7 @@ namespace Gpb {
       if (other.Tid != 0) {
         Tid = other.Tid;
       }
-      if (other.AllocationStart != 0) {
+      if (other.AllocationStart.Length != 0) {
         AllocationStart = other.AllocationStart;
       }
       if (other.DetectionMethod != 0) {
@@ -1835,8 +1835,8 @@ namespace Gpb {
             Tid = input.ReadUInt32();
             break;
           }
-          case 144: {
-            AllocationStart = input.ReadUInt32();
+          case 146: {
+            AllocationStart = input.ReadBytes();
             break;
           }
           case 152: {

@@ -1232,6 +1232,20 @@ class ProcessReactionData final :
   ::std::string* release_binarycontents();
   void set_allocated_binarycontents(::std::string* binarycontents);
 
+  // bytes allocationStart = 18;
+  void clear_allocationstart();
+  static const int kAllocationStartFieldNumber = 18;
+  const ::std::string& allocationstart() const;
+  void set_allocationstart(const ::std::string& value);
+  #if LANG_CXX11
+  void set_allocationstart(::std::string&& value);
+  #endif
+  void set_allocationstart(const char* value);
+  void set_allocationstart(const void* value, size_t size);
+  ::std::string* mutable_allocationstart();
+  ::std::string* release_allocationstart();
+  void set_allocated_allocationstart(::std::string* allocationstart);
+
   // uint32 mitreID = 1;
   void clear_mitreid();
   static const int kMitreIDFieldNumber = 1;
@@ -1280,12 +1294,6 @@ class ProcessReactionData final :
   ::google::protobuf::uint32 tid() const;
   void set_tid(::google::protobuf::uint32 value);
 
-  // uint32 allocationStart = 18;
-  void clear_allocationstart();
-  static const int kAllocationStartFieldNumber = 18;
-  ::google::protobuf::uint32 allocationstart() const;
-  void set_allocationstart(::google::protobuf::uint32 value);
-
   // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
   void clear_detectionmethod();
   static const int kDetectionMethodFieldNumber = 19;
@@ -1306,6 +1314,7 @@ class ProcessReactionData final :
   ::google::protobuf::internal::ArenaStringPtr parent_;
   ::google::protobuf::internal::ArenaStringPtr user_;
   ::google::protobuf::internal::ArenaStringPtr binarycontents_;
+  ::google::protobuf::internal::ArenaStringPtr allocationstart_;
   ::google::protobuf::uint32 mitreid_;
   ::google::protobuf::uint32 pid_;
   ::google::protobuf::uint32 timestarted_;
@@ -1314,7 +1323,6 @@ class ProcessReactionData final :
   ::google::protobuf::uint32 privatebytes_;
   ::google::protobuf::uint32 workingset_;
   ::google::protobuf::uint32 tid_;
-  ::google::protobuf::uint32 allocationstart_;
   int detectionmethod_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ReactionData_2eproto;
@@ -3400,18 +3408,57 @@ inline void ProcessReactionData::set_tid(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:gpb.ProcessReactionData.tid)
 }
 
-// uint32 allocationStart = 18;
+// bytes allocationStart = 18;
 inline void ProcessReactionData::clear_allocationstart() {
-  allocationstart_ = 0u;
+  allocationstart_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::uint32 ProcessReactionData::allocationstart() const {
+inline const ::std::string& ProcessReactionData::allocationstart() const {
   // @@protoc_insertion_point(field_get:gpb.ProcessReactionData.allocationStart)
-  return allocationstart_;
+  return allocationstart_.GetNoArena();
 }
-inline void ProcessReactionData::set_allocationstart(::google::protobuf::uint32 value) {
+inline void ProcessReactionData::set_allocationstart(const ::std::string& value) {
   
-  allocationstart_ = value;
+  allocationstart_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:gpb.ProcessReactionData.allocationStart)
+}
+#if LANG_CXX11
+inline void ProcessReactionData::set_allocationstart(::std::string&& value) {
+  
+  allocationstart_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:gpb.ProcessReactionData.allocationStart)
+}
+#endif
+inline void ProcessReactionData::set_allocationstart(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  allocationstart_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:gpb.ProcessReactionData.allocationStart)
+}
+inline void ProcessReactionData::set_allocationstart(const void* value, size_t size) {
+  
+  allocationstart_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:gpb.ProcessReactionData.allocationStart)
+}
+inline ::std::string* ProcessReactionData::mutable_allocationstart() {
+  
+  // @@protoc_insertion_point(field_mutable:gpb.ProcessReactionData.allocationStart)
+  return allocationstart_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ProcessReactionData::release_allocationstart() {
+  // @@protoc_insertion_point(field_release:gpb.ProcessReactionData.allocationStart)
+  
+  return allocationstart_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ProcessReactionData::set_allocated_allocationstart(::std::string* allocationstart) {
+  if (allocationstart != nullptr) {
+    
+  } else {
+    
+  }
+  allocationstart_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), allocationstart);
+  // @@protoc_insertion_point(field_set_allocated:gpb.ProcessReactionData.allocationStart)
 }
 
 // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;

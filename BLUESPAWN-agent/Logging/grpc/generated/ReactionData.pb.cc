@@ -357,7 +357,7 @@ const char descriptor_table_protodef_ReactionData_2eproto[] =
   "\n\tsentBytes\030\r \001(\r\022\024\n\014privateBytes\030\016 \001(\r\022"
   "\022\n\nworkingSet\030\017 \001(\r\022\026\n\016binaryContents\030\020 "
   "\001(\014\022\013\n\003tid\030\021 \001(\r\022\027\n\017allocationStart\030\022 \001("
-  "\r\022H\n\017detectionMethod\030\023 \001(\0162/.gpb.Process"
+  "\014\022H\n\017detectionMethod\030\023 \001(\0162/.gpb.Process"
   "ReactionData.ProcessDetectionMethod\"f\n\026P"
   "rocessDetectionMethod\022\022\n\016NotImageBacked\020"
   "\000\022\030\n\024BackingImageMismatch\020\001\022\017\n\013NotInLoad"
@@ -2936,6 +2936,10 @@ ProcessReactionData::ProcessReactionData(const ProcessReactionData& from)
   if (from.binarycontents().size() > 0) {
     binarycontents_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.binarycontents_);
   }
+  allocationstart_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.allocationstart().size() > 0) {
+    allocationstart_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.allocationstart_);
+  }
   ::memcpy(&mitreid_, &from.mitreid_,
     static_cast<size_t>(reinterpret_cast<char*>(&detectionmethod_) -
     reinterpret_cast<char*>(&mitreid_)) + sizeof(detectionmethod_));
@@ -2954,6 +2958,7 @@ void ProcessReactionData::SharedCtor() {
   parent_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarycontents_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  allocationstart_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&detectionmethod_) -
       reinterpret_cast<char*>(&mitreid_)) + sizeof(detectionmethod_));
@@ -2974,6 +2979,7 @@ void ProcessReactionData::SharedDtor() {
   parent_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarycontents_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  allocationstart_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void ProcessReactionData::SetCachedSize(int size) const {
@@ -3000,6 +3006,7 @@ void ProcessReactionData::Clear() {
   parent_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   binarycontents_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  allocationstart_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mitreid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&detectionmethod_) -
       reinterpret_cast<char*>(&mitreid_)) + sizeof(detectionmethod_));
@@ -3218,11 +3225,19 @@ const char* ProcessReactionData::_InternalParse(const char* begin, const char* e
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // uint32 allocationStart = 18;
+      // bytes allocationStart = 18;
       case 18: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 144) goto handle_unusual;
-        msg->set_allocationstart(::google::protobuf::internal::ReadVarint(&ptr));
+        if (static_cast<::google::protobuf::uint8>(tag) != 146) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_allocationstart();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
         break;
       }
       // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
@@ -3502,13 +3517,11 @@ bool ProcessReactionData::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 allocationStart = 18;
+      // bytes allocationStart = 18;
       case 18: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (144 & 0xFF)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &allocationstart_)));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (146 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_allocationstart()));
         } else {
           goto handle_unusual;
         }
@@ -3682,9 +3695,10 @@ void ProcessReactionData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(17, this->tid(), output);
   }
 
-  // uint32 allocationStart = 18;
-  if (this->allocationstart() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(18, this->allocationstart(), output);
+  // bytes allocationStart = 18;
+  if (this->allocationstart().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      18, this->allocationstart(), output);
   }
 
   // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
@@ -3841,9 +3855,11 @@ void ProcessReactionData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(17, this->tid(), target);
   }
 
-  // uint32 allocationStart = 18;
-  if (this->allocationstart() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(18, this->allocationstart(), target);
+  // bytes allocationStart = 18;
+  if (this->allocationstart().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        18, this->allocationstart(), target);
   }
 
   // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
@@ -3936,6 +3952,13 @@ size_t ProcessReactionData::ByteSizeLong() const {
         this->binarycontents());
   }
 
+  // bytes allocationStart = 18;
+  if (this->allocationstart().size() > 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->allocationstart());
+  }
+
   // uint32 mitreID = 1;
   if (this->mitreid() != 0) {
     total_size += 1 +
@@ -3990,13 +4013,6 @@ size_t ProcessReactionData::ByteSizeLong() const {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->tid());
-  }
-
-  // uint32 allocationStart = 18;
-  if (this->allocationstart() != 0) {
-    total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->allocationstart());
   }
 
   // .gpb.ProcessReactionData.ProcessDetectionMethod detectionMethod = 19;
@@ -4068,6 +4084,10 @@ void ProcessReactionData::MergeFrom(const ProcessReactionData& from) {
 
     binarycontents_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.binarycontents_);
   }
+  if (from.allocationstart().size() > 0) {
+
+    allocationstart_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.allocationstart_);
+  }
   if (from.mitreid() != 0) {
     set_mitreid(from.mitreid());
   }
@@ -4091,9 +4111,6 @@ void ProcessReactionData::MergeFrom(const ProcessReactionData& from) {
   }
   if (from.tid() != 0) {
     set_tid(from.tid());
-  }
-  if (from.allocationstart() != 0) {
-    set_allocationstart(from.allocationstart());
   }
   if (from.detectionmethod() != 0) {
     set_detectionmethod(from.detectionmethod());
@@ -4143,6 +4160,8 @@ void ProcessReactionData::InternalSwap(ProcessReactionData* other) {
     GetArenaNoVirtual());
   binarycontents_.Swap(&other->binarycontents_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  allocationstart_.Swap(&other->allocationstart_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(mitreid_, other->mitreid_);
   swap(pid_, other->pid_);
   swap(timestarted_, other->timestarted_);
@@ -4151,7 +4170,6 @@ void ProcessReactionData::InternalSwap(ProcessReactionData* other) {
   swap(privatebytes_, other->privatebytes_);
   swap(workingset_, other->workingset_);
   swap(tid_, other->tid_);
-  swap(allocationstart_, other->allocationstart_);
   swap(detectionmethod_, other->detectionmethod_);
 }
 
