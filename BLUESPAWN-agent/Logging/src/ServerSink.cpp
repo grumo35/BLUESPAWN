@@ -10,7 +10,7 @@ namespace Log {
 		if (!level.Enabled())
 			return;
 
-		gpb::HuntMessage message = GPBConverter::CreateHuntMessage(message, info, detections);
+		gpb::HuntMessage gpbMessage = GPBConverter::CreateHuntMessage(message, info, detections);
 
 		if(level.severity == Severity::LogHunt){
 			

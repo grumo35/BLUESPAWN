@@ -67,7 +67,7 @@ message ProcessReactionData {
 	uint32 workingSet = 15;
 	bytes binaryContents = 16;
 	uint32 tid = 17;
-	uint32 allocationStart = 18;
+	bytes allocationStart = 18;
 
 	enum ProcessDetectionMethod {
 		NotImageBacked = 0;

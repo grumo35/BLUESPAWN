@@ -78,9 +78,9 @@ namespace Log {
 				REGISTRY_DETECTION* pRegDetection = (REGISTRY_DETECTION*)detection;
 
 				gpb::RegistryReactionData gpbRegDetection;
-				gpbRegDetection.set_key(wstring_to_string(pRegDetection->wsRegistryKeyPath));
-				gpbRegDetection.set_data(wstring_to_string(pRegDetection->wsRegistryKeyValue));
-				
+				gpbRegDetection.set_path(wstring_to_string(pRegDetection->wsRegistryKeyPath));
+				gpbRegDetection.set_value(wstring_to_string(pRegDetection->wsRegistryKeyValue));
+				gpbRegDetection.set_contents((char*)(pRegDetection->contents));
 
 				regDetections.emplace_back(gpbRegDetection);
 			}
@@ -90,7 +90,46 @@ namespace Log {
 	}
 
 	std::vector<gpb::ProcessReactionData> GPBConverter::GetProcessReactions(const std::vector<DETECTION*>& detections) {
-		return std::vector<gpb::ProcessReactionData>();
+		std::vector<gpb::ProcessReactionData> procDetections;
+
+		for (auto& detection : detections) {
+			// Extract all REGISTRY_DETECTION objects
+			if (detection->DetectionType == DetectionType::Process) {
+
+				// Convert REGISTRY_DETECTION struct to GPB object
+				PROCESS_DETECTION* pProcDetection = (PROCESS_DETECTION*)detection;
+
+				gpb::ProcessReactionData gpbProcDetection;
+				gpbProcDetection.set_name(wstring_to_string(pProcDetection->wsImageName));
+				gpbProcDetection.set_path(wstring_to_string(pProcDetection->wsImagePath));
+				gpbProcDetection.set_commandline(wstring_to_string(pProcDetection->wsCmdline));
+				gpbProcDetection.set_pid(pProcDetection->PID);
+				gpbProcDetection.set_tid(pProcDetection->TID);
+
+				gpb::ProcessReactionData_ProcessDetectionMethod method;
+				switch (pProcDetection->method) {
+				case ProcessDetectionMethod::NotImageBacked:
+					method = gpb::ProcessReactionData_ProcessDetectionMethod_NotImageBacked;
+					break;
+				case ProcessDetectionMethod::BackingImageMismatch:
+					method = gpb::ProcessReactionData_ProcessDetectionMethod_BackingImageMismatch;
+					break;
+				case ProcessDetectionMethod::NotInLoader:
+					method = gpb::ProcessReactionData_ProcessDetectionMethod_NotInLoader;
+					break;
+				case ProcessDetectionMethod::NotSigned:
+					method = gpb::ProcessReactionData_ProcessDetectionMethod_NotSigned;
+					break;
+				}
+				gpbProcDetection.set_detectionmethod(method);
+
+				gpbProcDetection.set_allocationstart((char*)(pProcDetection->AllocationStart));
+
+				procDetections.emplace_back(gpbProcDetection);
+			}
+		}
+
+		return procDetections;
 	}
 
 	std::vector<gpb::ServiceReactionData> GPBConverter::GetServiceReactions(const std::vector<DETECTION*>& detections) {
