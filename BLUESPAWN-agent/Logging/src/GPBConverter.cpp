@@ -93,10 +93,10 @@ namespace Log {
 		std::vector<gpb::ProcessReactionData> procDetections;
 
 		for (auto& detection : detections) {
-			// Extract all REGISTRY_DETECTION objects
+			// Extract all PROCESS_DETECTION objects
 			if (detection->DetectionType == DetectionType::Process) {
 
-				// Convert REGISTRY_DETECTION struct to GPB object
+				// Convert PROCESS_DETECTION struct to GPB object
 				PROCESS_DETECTION* pProcDetection = (PROCESS_DETECTION*)detection;
 
 				gpb::ProcessReactionData gpbProcDetection;
@@ -133,23 +133,54 @@ namespace Log {
 	}
 
 	std::vector<gpb::ServiceReactionData> GPBConverter::GetServiceReactions(const std::vector<DETECTION*>& detections) {
-		return std::vector<gpb::ServiceReactionData>();
+		std::vector<gpb::ServiceReactionData> serviceDetections;
+
+		for (auto& detection : detections) {
+			// Extract all SERVICE_DETECTION objects
+			if (detection->DetectionType == DetectionType::Service) {
+
+				// Convert SERVICE_DETECTION struct to GPB object
+				SERVICE_DETECTION* pServiceDetection = (SERVICE_DETECTION*)detection;
+
+				gpb::ServiceReactionData gpbServiceDetection;
+				gpbServiceDetection.set_name(wstring_to_string(pServiceDetection->wsServiceName));
+				gpbServiceDetection.set_binarypath(wstring_to_string(pServiceDetection->wsServiceExecutablePath));
+				gpbServiceDetection.set_servicedll(wstring_to_string(pServiceDetection->wsServiceDll));
+				gpbServiceDetection.set_pid(pServiceDetection->ServicePID);
+
+				serviceDetections.emplace_back(gpbServiceDetection);
+			}
+		}
+
+		return serviceDetections;
 	}
 
-	void GPBConverter::CopyFileReaction(gpb::FileReactionData reactionData, gpb::FileReactionData* pFileReactionData) {
-
+	void GPBConverter::CopyFileReaction(gpb::FileReactionData &reactionData, gpb::FileReactionData* pFileReactionData) {
+		pFileReactionData->set_filename(reactionData.filename);
+		pFileReactionData->set_hash(reactionData.hash);
 	}
 
-	void GPBConverter::CopyRegistryReaction(gpb::RegistryReactionData reactionData, gpb::RegistryReactionData* pFileReactionData) {
-
+	void GPBConverter::CopyRegistryReaction(gpb::RegistryReactionData &reactionData, gpb::RegistryReactionData* pRegReactionData) {
+		pRegReactionData->set_path(reactionData.path);
+		pRegReactionData->set_value(reactionData.value);
+		pRegReactionData->set_contents(reactionData.contents);
 	}
 
-	void GPBConverter::CopyProcessReaction(gpb::ProcessReactionData reactionData, gpb::ProcessReactionData* pFileReactionData) {
-
+	void GPBConverter::CopyProcessReaction(gpb::ProcessReactionData &reactionData, gpb::ProcessReactionData* pProcessReactionData) {
+		pProcessReactionData->set_name(reactionData.name);
+		pProcessReactionData->set_path(reactionData.path);
+		pProcessReactionData->set_commandline(reactionData.commandline);
+		pProcessReactionData->set_pid(reactionData.pid);
+		pProcessReactionData->set_tid(reactionData.tid);
+		pProcessReactionData->set_detectionmethod(reactionData.detectionmethod);
+		pProcessReactionData->set_allocationstart(reactionData.allocationstart);
 	}
 
-	void GPBConverter::CopyServiceReaction(gpb::ServiceReactionData reactionData, gpb::ServiceReactionData* pFileReactionData) {
-
+	void GPBConverter::CopyServiceReaction(gpb::ServiceReactionData &reactionData, gpb::ServiceReactionData* pServiceReactionData) {
+		pServiceReactionData->set_name(reactionData.name);
+		pServiceReactionData->set_binarypath(reactionData.binarypath);
+		pServiceReactionData->set_servicedll(reactionData.servicedll);
+		pServiceReactionData->set_pid(reactionData.pid);
 	}
 
 	gpb::HuntMessage GPBConverter::CreateHuntMessage(const std::string& message, const HuntInfo& info, const std::vector<DETECTION*>& detections) {
@@ -157,11 +188,36 @@ namespace Log {
 		huntMessage.set_allocated_info(&HuntInfoToGPB(info));
 		huntMessage.set_extramessage(message);
 
+		// Add FileReactionData objects
 		auto fileReactionList = GetFileReactions(detections);
 		gpb::FileReactionData* pFileReaction;
 		for (auto fileReaction : fileReactionList) {
 			pFileReaction = huntMessage.add_filedetections();
 			CopyFileReaction(fileReaction, pFileReaction);
+		}
+
+		// Add RegistryReactionData objects
+		auto regReactionList = GetRegistryReactions(detections);
+		gpb::RegistryReactionData* pRegReaction;
+		for (auto regReaction : regReactionList) {
+			pRegReaction = huntMessage.add_registrydetections();
+			CopyRegistryReaction(regReaction, pRegReaction);
+		}
+
+		// Add ProcessReactionData objects
+		auto regProcessList = GetProcessReactions(detections);
+		gpb::ProcessReactionData* pProcReaction;
+		for (auto procReaction : regProcessList) {
+			pProcReaction = huntMessage.add_processdetections();
+			CopyProcessReaction(procReaction, pProcReaction);
+		}
+
+		// Add ServiceReactionData objects
+		auto serviceProcessList = GetServiceReactions(detections);
+		gpb::ServiceReactionData* pServReaction;
+		for (auto servReaction : serviceProcessList) {
+			pServReaction = huntMessage.add_servicedetections();
+			CopyServiceReaction(servReaction, pServReaction);
 		}
 
 		return huntMessage;

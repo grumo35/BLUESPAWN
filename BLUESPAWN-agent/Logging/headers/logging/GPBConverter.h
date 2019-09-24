@@ -23,9 +23,9 @@ namespace Log {
 		static std::vector<gpb::ProcessReactionData> GetProcessReactions(const std::vector<DETECTION*>& detections);
 		static std::vector<gpb::ServiceReactionData> GetServiceReactions(const std::vector<DETECTION*>& detections);
 
-		static void CopyFileReaction(gpb::FileReactionData reactionData, gpb::FileReactionData* pFileReactionData);
-		static void CopyRegistryReaction(gpb::RegistryReactionData reactionData, gpb::RegistryReactionData* pFileReactionData);
-		static void CopyProcessReaction(gpb::ProcessReactionData reactionData, gpb::ProcessReactionData* pFileReactionData);
-		static void CopyServiceReaction(gpb::ServiceReactionData reactionData, gpb::ServiceReactionData* pFileReactionData);
+		static void CopyFileReaction(gpb::FileReactionData &reactionData, gpb::FileReactionData* pFileReactionData);
+		static void CopyRegistryReaction(gpb::RegistryReactionData &reactionData, gpb::RegistryReactionData* pFileReactionData);
+		static void CopyProcessReaction(gpb::ProcessReactionData &reactionData, gpb::ProcessReactionData* pFileReactionData);
+		static void CopyServiceReaction(gpb::ServiceReactionData &reactionData, gpb::ServiceReactionData* pFileReactionData);
 	};
 }
