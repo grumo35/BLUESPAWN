@@ -156,31 +156,31 @@ namespace Log {
 	}
 
 	void GPBConverter::CopyFileReaction(gpb::FileReactionData &reactionData, gpb::FileReactionData* pFileReactionData) {
-		pFileReactionData->set_filename(reactionData.filename);
-		pFileReactionData->set_hash(reactionData.hash);
+		pFileReactionData->set_filename(reactionData.filename());
+		pFileReactionData->set_hash(reactionData.hash());
 	}
 
 	void GPBConverter::CopyRegistryReaction(gpb::RegistryReactionData &reactionData, gpb::RegistryReactionData* pRegReactionData) {
-		pRegReactionData->set_path(reactionData.path);
-		pRegReactionData->set_value(reactionData.value);
-		pRegReactionData->set_contents(reactionData.contents);
+		pRegReactionData->set_path(reactionData.path());
+		pRegReactionData->set_value(reactionData.value());
+		pRegReactionData->set_contents(reactionData.contents());
 	}
 
 	void GPBConverter::CopyProcessReaction(gpb::ProcessReactionData &reactionData, gpb::ProcessReactionData* pProcessReactionData) {
-		pProcessReactionData->set_name(reactionData.name);
-		pProcessReactionData->set_path(reactionData.path);
-		pProcessReactionData->set_commandline(reactionData.commandline);
-		pProcessReactionData->set_pid(reactionData.pid);
-		pProcessReactionData->set_tid(reactionData.tid);
-		pProcessReactionData->set_detectionmethod(reactionData.detectionmethod);
-		pProcessReactionData->set_allocationstart(reactionData.allocationstart);
+		pProcessReactionData->set_name(reactionData.name());
+		pProcessReactionData->set_path(reactionData.path());
+		pProcessReactionData->set_commandline(reactionData.commandline());
+		pProcessReactionData->set_pid(reactionData.pid());
+		pProcessReactionData->set_tid(reactionData.tid());
+		pProcessReactionData->set_detectionmethod(reactionData.detectionmethod());
+		pProcessReactionData->set_allocationstart(reactionData.allocationstart());
 	}
 
 	void GPBConverter::CopyServiceReaction(gpb::ServiceReactionData &reactionData, gpb::ServiceReactionData* pServiceReactionData) {
-		pServiceReactionData->set_name(reactionData.name);
-		pServiceReactionData->set_binarypath(reactionData.binarypath);
-		pServiceReactionData->set_servicedll(reactionData.servicedll);
-		pServiceReactionData->set_pid(reactionData.pid);
+		pServiceReactionData->set_name(reactionData.name());
+		pServiceReactionData->set_binarypath(reactionData.binarypath());
+		pServiceReactionData->set_servicedll(reactionData.servicedll());
+		pServiceReactionData->set_pid(reactionData.pid());
 	}
 
 	gpb::HuntMessage GPBConverter::CreateHuntMessage(const std::string& message, const HuntInfo& info, const std::vector<DETECTION*>& detections) {

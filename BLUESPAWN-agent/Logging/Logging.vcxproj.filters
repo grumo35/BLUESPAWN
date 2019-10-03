@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="grpc\generated\ReactionData.grpc.pb.cc" />
-    <ClCompile Include="grpc\generated\ReactionData.pb.cc" />
-    <ClCompile Include="grpc\generated\ServerServices.grpc.pb.cc" />
-    <ClCompile Include="grpc\generated\ServerServices.pb.cc" />
     <ClCompile Include="src\CLISink.cpp" />
     <ClCompile Include="src\HuntLogMessage.cpp" />
     <ClCompile Include="src\Log.cpp" />
@@ -12,6 +8,10 @@
     <ClCompile Include="src\ServerSink.cpp" />
     <ClCompile Include="src\DebugSink.cpp" />
     <ClCompile Include="src\GPBConverter.cpp" />
+    <ClCompile Include="grpc\generated\ReactionData.grpc.pb.cc" />
+    <ClCompile Include="grpc\generated\ReactionData.pb.cc" />
+    <ClCompile Include="grpc\generated\ServerServices.grpc.pb.cc" />
+    <ClCompile Include="grpc\generated\ServerServices.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="grpc\generated\grpc++\alarm.h" />
@@ -284,10 +284,6 @@
     <ClInclude Include="grpc\generated\grpc\support\thd_id.h" />
     <ClInclude Include="grpc\generated\grpc\support\time.h" />
     <ClInclude Include="grpc\generated\grpc\support\workaround_list.h" />
-    <ClInclude Include="grpc\generated\ReactionData.grpc.pb.h" />
-    <ClInclude Include="grpc\generated\ReactionData.pb.h" />
-    <ClInclude Include="grpc\generated\ServerServices.grpc.pb.h" />
-    <ClInclude Include="grpc\generated\ServerServices.pb.h" />
     <ClInclude Include="headers\logging\CLISink.h" />
     <ClInclude Include="headers\logging\HuntLogMessage.h" />
     <ClInclude Include="headers\logging\Log.h" />
@@ -297,6 +293,10 @@
     <ClInclude Include="headers\logging\ServerSink.h" />
     <ClInclude Include="headers\logging\DebugSink.h" />
     <ClInclude Include="headers\logging\GPBConverter.h" />
+    <ClInclude Include="grpc\generated\ReactionData.grpc.pb.h" />
+    <ClInclude Include="grpc\generated\ReactionData.pb.h" />
+    <ClInclude Include="grpc\generated\ServerServices.grpc.pb.h" />
+    <ClInclude Include="grpc\generated\ServerServices.pb.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="protos\ReactionData.proto" />

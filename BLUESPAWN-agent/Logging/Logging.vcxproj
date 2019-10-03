@@ -32,6 +32,10 @@
     <ClCompile Include="src\DebugSink.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="grpc\generated\ReactionData.grpc.pb.h" />
+    <ClInclude Include="grpc\generated\ReactionData.pb.h" />
+    <ClInclude Include="grpc\generated\ServerServices.grpc.pb.h" />
+    <ClInclude Include="grpc\generated\ServerServices.pb.h" />
     <ClInclude Include="headers\logging\GPBConverter.h" />
     <ClInclude Include="grpc\generated\grpc++\alarm.h" />
     <ClInclude Include="grpc\generated\grpc++\channel.h" />
@@ -303,10 +307,6 @@
     <ClInclude Include="grpc\generated\grpc\support\thd_id.h" />
     <ClInclude Include="grpc\generated\grpc\support\time.h" />
     <ClInclude Include="grpc\generated\grpc\support\workaround_list.h" />
-    <ClInclude Include="grpc\generated\ReactionData.grpc.pb.h" />
-    <ClInclude Include="grpc\generated\ReactionData.pb.h" />
-    <ClInclude Include="grpc\generated\ServerServices.grpc.pb.h" />
-    <ClInclude Include="grpc\generated\ServerServices.pb.h" />
     <ClInclude Include="headers\logging\CLISink.h" />
     <ClInclude Include="headers\logging\HuntLogMessage.h" />
     <ClInclude Include="headers\logging\Log.h" />
@@ -436,9 +436,9 @@
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)\grpc\include;$(ProjectDir)\grpc\generated;$(SolutionDir)\Hunt\Configuration\headers;%(AdditionalIncludeDirectories) (edited) </AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WIN32_WINNT=0x600;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>-DNOMINMAX %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>D:\CCDC\BLUESPAWN\BLUESPAWN-agent\Logging\grpc\include;D:\CCDC\BLUESPAWN\BLUESPAWN-agent\Logging\grpc\generated;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

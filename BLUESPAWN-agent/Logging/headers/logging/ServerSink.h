@@ -7,6 +7,10 @@
 #include "logging/GPBConverter.h"
 #include "reactions/Detections.h"
 #include "ReactionData.pb.h"
+#include "ServerServices.grpc.pb.h"
+#include <grpcpp/grpcpp.h>
+
+using gpb::BLUESPAWN;
 
 namespace Log {
 
@@ -17,8 +21,12 @@ namespace Log {
 	class ServerSink : public LogSink {
 	private:
 		std::string MessagePrepends[4] = { "[ERROR]", "[WARNING]", "[INFO]", "[OTHER]" };
+		std::unique_ptr<BLUESPAWN::Stub> stub_;
 
 	public:
+
+		ServerSink(std::string ip, std::string port) :
+			stub_(BLUESPAWN::NewStub(grpc::CreateChannel(ip + ":" + port, grpc::InsecureChannelCredentials()))) {}
 
 		/**
 		 * Outputs a message to the console if its logging level is enabled. The log message

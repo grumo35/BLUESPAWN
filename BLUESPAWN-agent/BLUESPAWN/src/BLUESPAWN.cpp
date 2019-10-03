@@ -9,9 +9,11 @@ int main(int argc, char* argv[])
 {
 	Log::DebugSink DebugOutput{};
 	Log::CLISink ConsoleOutput{};
+	Log::ServerSink ServerOutput{"localhost", "9000"};
 	Log::AddSink(DebugOutput);
 	Log::AddHuntSink(ConsoleOutput);
-
+	Log::AddHuntSink(ServerOutput);
+	
 	print_banner();
 
 	cxxopts::Options options("BLUESPAWN.exe", "BLUESPAWN: A Windows based Active Defense Tool to empower Blue Teams");

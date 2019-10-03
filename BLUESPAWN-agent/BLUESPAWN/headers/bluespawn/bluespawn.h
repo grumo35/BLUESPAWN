@@ -20,6 +20,7 @@
 #include "bluespawn/banners.h"
 #include "logging/Log.h"
 #include "logging/CLISink.h"
+#include "logging/ServerSink.h"
 #include "configuration/Registry.h"
 
 #include "hunts/Hunt.h"
