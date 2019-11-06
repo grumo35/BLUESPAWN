@@ -393,7 +393,7 @@
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_WIN32_WINNT=0x600;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\grpc\include;$(ProjectDir)\grpc\generated;$(SolutionDir)\Hunt\Configuration\headers;%(AdditionalIncludeDirectories) (edited) </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Logging\grpc\generated;$(SolutionDir)\Logging\grpc\include;$(SolutionDir)\Hunt\Configuration\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-DNOMINMAX %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>

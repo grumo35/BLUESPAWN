@@ -1,7 +1,7 @@
 #include <Windows.h>
 
 #include <iostream>
-
+#include "logging/GPBConverter.h"
 #include "logging/ServerSink.h"
 
 using grpc::Channel;

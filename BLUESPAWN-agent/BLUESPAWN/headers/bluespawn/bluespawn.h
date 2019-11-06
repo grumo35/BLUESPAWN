@@ -4,6 +4,10 @@
 #define NOMINMAX
 #endif
 
+#ifndef _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS
+#define _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS
+#endif
+
 #include <Windows.h>
 
 // The developer of this library is a bad developer who left warnings in his code.

@@ -4,9 +4,8 @@
 
 #include "LogSink.h"
 #include "LogLevel.h"
-#include "logging/GPBConverter.h"
 #include "reactions/Detections.h"
-#include "ReactionData.pb.h"
+//#include "ReactionData.grpc.pb.h"
 #include "ServerServices.grpc.pb.h"
 #include <grpcpp/grpcpp.h>
 
