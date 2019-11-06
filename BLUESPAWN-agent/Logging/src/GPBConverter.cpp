@@ -51,7 +51,7 @@ namespace Log {
 
 		for (auto& detection : detections) {
 			// Extract all FILE_DETECTION objects
-			if (detection->DetectionType == DetectionType::File) {
+			if (detection->Type == DetectionType::File) {
 
 				// Convert FILE_DETECTION struct to GPB object
 				FILE_DETECTION* pFileDetection = (FILE_DETECTION*)detection;
@@ -72,7 +72,7 @@ namespace Log {
 
 		for (auto& detection : detections) {
 			// Extract all REGISTRY_DETECTION objects
-			if (detection->DetectionType == DetectionType::Registry) {
+			if (detection->Type == DetectionType::Registry) {
 
 				// Convert REGISTRY_DETECTION struct to GPB object
 				REGISTRY_DETECTION* pRegDetection = (REGISTRY_DETECTION*)detection;
@@ -94,7 +94,7 @@ namespace Log {
 
 		for (auto& detection : detections) {
 			// Extract all PROCESS_DETECTION objects
-			if (detection->DetectionType == DetectionType::Process) {
+			if (detection->Type == DetectionType::Process) {
 
 				// Convert PROCESS_DETECTION struct to GPB object
 				PROCESS_DETECTION* pProcDetection = (PROCESS_DETECTION*)detection;
@@ -137,7 +137,7 @@ namespace Log {
 
 		for (auto& detection : detections) {
 			// Extract all SERVICE_DETECTION objects
-			if (detection->DetectionType == DetectionType::Service) {
+			if (detection->Type == DetectionType::Service) {
 
 				// Convert SERVICE_DETECTION struct to GPB object
 				SERVICE_DETECTION* pServiceDetection = (SERVICE_DETECTION*)detection;

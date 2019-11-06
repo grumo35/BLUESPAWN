@@ -15,7 +15,11 @@ namespace Log {
 		if (!level.Enabled())
 			return;
 
-		gpb::HuntMessage gpbMessage = GPBConverter::CreateHuntMessage(message, info, detections);
+		std::vector<DETECTION*> detectionPtrs = {};
+		for (auto detection : detections) {
+			detectionPtrs.emplace_back(&*detection);
+		}
+		gpb::HuntMessage gpbMessage = GPBConverter::CreateHuntMessage(message, info, detectionPtrs);
 		gpb::Empty reply;
 		grpc::ClientContext context;
 

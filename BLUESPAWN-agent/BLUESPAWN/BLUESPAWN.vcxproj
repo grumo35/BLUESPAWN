@@ -58,6 +58,7 @@
     <Import Project="..\Project Configurations\buildsettings.props" />
     <Import Project="..\Project Configurations\buildstructure.props" />
     <Import Project="..\Logging\Logging.props" />
+	<Import Project="..\Logging\GRPC.props" />
     <Import Project="..\Hunt\FileSystem\FileSystem.props" />
     <Import Project="..\Hunt\Configuration\Configuration.props" />
     <Import Project="..\Hunt\Hunts\Hunts.props" />
