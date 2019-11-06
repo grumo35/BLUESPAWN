@@ -1,12 +1,14 @@
 #include "bluespawn/bluespawn.h"
-#include "common/wrappers.hpp"
 #include "logging/HuntLogMessage.h"
 #include "logging/DebugSink.h"
+#include "common/DynamicLinker.h"
 
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
+	Linker::LinkFunctions();
+
 	Log::DebugSink DebugOutput{};
 	Log::CLISink ConsoleOutput{};
 	Log::ServerSink ServerOutput{"localhost", "9000"};
@@ -64,25 +66,25 @@ void print_help(cxxopts::ParseResult result, cxxopts::Options options) {
 void dispatch_hunt(cxxopts::ParseResult result, cxxopts::Options options) {
 	std::string sHuntLevelFlag = "Moderate";
 	Aggressiveness aHuntLevel;
-	if (result.count("level")) {
+	if(result.count("level")) {
 		try {
 			sHuntLevelFlag = result["level"].as < std::string >();
-		}
-		catch (int e) {
+		} catch(int e) {
 			std::cerr << "Error " << e << " - Unknown hunt level. Please specify either Cursory, Moderate, Careful, or Aggressive" << std::endl;
 		}
 	}
-	if (sHuntLevelFlag == "Cursory") {
+	if(sHuntLevelFlag == "Cursory") {
 		aHuntLevel = Aggressiveness::Cursory;
-	}
-	else if (sHuntLevelFlag == "Moderate") {
+	} else if(sHuntLevelFlag == "Moderate") {
 		aHuntLevel = Aggressiveness::Moderate;
-	}
-	else if (sHuntLevelFlag == "Careful") {
+	} else if(sHuntLevelFlag == "Careful") {
 		aHuntLevel = Aggressiveness::Careful;
-	}
-	else {
+	} else if (sHuntLevelFlag == "Aggressive") {
 		aHuntLevel = Aggressiveness::Aggressive;
+	} else {
+		std::cerr << "Error " << sHuntLevelFlag << " - Unknown hunt level. Please specify either Cursory, Moderate, Careful, or Aggressive" << std::endl;
+		std::cerr << "Will default to Moderate for this run." << std::endl;
+		aHuntLevel = Aggressiveness::Moderate;
 	}
 
 	HuntRegister record{};

@@ -10,7 +10,8 @@ using gpb::BLUESPAWN;
 
 namespace Log {
 
-	void ServerSink::LogMessage(const LogLevel& level, const std::string& message, const HuntInfo& info, const std::vector<DETECTION*>& detections){
+	void ServerSink::LogMessage(const LogLevel& level, const std::string& message, const HuntInfo& info, 
+		const std::vector<std::shared_ptr<DETECTION>>& detections){
 		if (!level.Enabled())
 			return;
 
@@ -27,6 +28,7 @@ namespace Log {
 			if (!status.ok()) 
 				std::cout << status.error_code() << ": " << status.error_message() << std::endl;
 		}
+
 	}
 
 	bool ServerSink::operator==(const LogSink& sink) const {

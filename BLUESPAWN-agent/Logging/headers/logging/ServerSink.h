@@ -34,7 +34,8 @@ namespace Log {
 		 * @param level The level at which the message is being logged
 		 * @param message The message to log
 		 */
-		virtual void LogMessage(const LogLevel& level, const std::string& message, const HuntInfo& info = {}, const std::vector<DETECTION*>& detections = {});
+		virtual void LogMessage(const LogLevel& level, const std::string& message, const HuntInfo& info = {}, 
+			                    const std::vector<std::shared_ptr<DETECTION>>& detections = {}) override;
 
 		/**
 		 * Compares this ServerSink to another LogSink. Currently, as only one console is supported,
